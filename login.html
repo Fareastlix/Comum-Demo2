@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masuk - Comum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="grid-config.css">
+</head>
+<body class="login-body">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">comum.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Event</a>
+                <div class="nav-dropdown" id="store-nav-dropdown">
+                    <a href="store.html" class="nav-dropdown-trigger">
+                        Store <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu nav-dropdown-menu--wide" style="grid-template-columns:repeat(3,1fr); min-width:520px">
+                        <a href="store.html" class="nav-dd-all" style="grid-column:1/-1">
+                            Semua Produk <i data-lucide="arrow-right"></i>
+                        </a>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Sepeda</span>
+                            <a href="store.html?cat=cycling&sub=jersey"   class="nav-dd-item">Jersey</a>
+                            <a href="store.html?cat=helmet"               class="nav-dd-item">Helm Sepeda</a>
+                            <a href="store.html?cat=cycling&sub=shoes"    class="nav-dd-item">Sepatu Road</a>
+                            <a href="store.html?cat=cycling&sub=computer" class="nav-dd-item">Cycling Computer</a>
+                            <a href="store.html?cat=parts&sub=wheelset"   class="nav-dd-item">Wheelset</a>
+                            <a href="store.html?cat=parts&sub=frame"      class="nav-dd-item">Frame</a>
+                            <a href="store.html?cat=parts&sub=drivetrain" class="nav-dd-item">Drivetrain</a>
+                            <a href="store.html?cat=parts&sub=steering"   class="nav-dd-item">Steering</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Padel</span>
+                            <a href="store.html?cat=padel&sub=racket" class="nav-dd-item">Raket Padel</a>
+                            <a href="store.html?cat=padel&sub=ball"   class="nav-dd-item">Padel Ball</a>
+                            <a href="store.html?cat=padel&sub=bag"    class="nav-dd-item">Padel Bag</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Lainnya</span>
+                            <a href="store.html?cat=suplemen"    class="nav-dd-item">Suplemen</a>
+                            <div class="nav-dd-divider"></div>
+                            <a href="store.html?cat=promo"       class="nav-dd-item nav-dd-item--red">Promo &amp; Sale</a>
+                            <a href="store.html?cat=new"         class="nav-dd-item nav-dd-item--green">Baru / New</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown" id="facilities-nav-dropdown">
+                    <a href="facilities.html" class="nav-dropdown-trigger">
+                        Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu" style="padding: 12px 16px; display: flex; flex-direction: column; gap: 6px;">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="facilities.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+            </div>
+            <a href="login.html" class="btn btn-primary nav-cta">
+                <i data-lucide="user"></i> Join Us!
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <a href="#" class="logo">comum.</a>
+            <button class="drawer-close" aria-label="Close menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Event</a>
+            <a href="store.html">Store</a>
+            <div class="nav-dropdown" id="facilities-nav-dropdown">
+                    <a href="facilities.html" class="nav-dropdown-trigger">
+                        Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu" style="padding: 12px 16px; display: flex; flex-direction: column; gap: 6px;">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="facilities.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+        </div>
+        <a href="login.html" class="btn btn-primary drawer-cta">Join Us!</a>
+    </div>
+
+    <main class="login-main">
+        <!-- Left: Community Visual -->
+        <div class="login-visual">
+            <img src="./Asset/Cycling_GroupPic.png" alt="Comum Community" class="login-bg-image">
+            <div class="login-visual-overlay"></div>
+            <div class="login-visual-content">
+                <span class="login-visual-badge">
+                    <span class="pulse-dot"></span>
+                    400+ active members
+                </span>
+                <h2>Gabung komunitas padel & cycling terbesar di Jakarta.</h2>
+                <p>Ride bareng, main padel, dan dapatkan rewards tiap belanja. Gratis selamanya.</p>
+                <div class="login-visual-perks">
+                    <div class="perk"><i data-lucide="trophy"></i> Membership rewards tiap belanja</div>
+                    <div class="perk"><i data-lucide="calendar-check"></i> Akses event eksklusif</div>
+                    <div class="perk"><i data-lucide="percent"></i> Diskon member di store</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right: Login Form -->
+        <div class="login-form-side">
+            <div class="login-form-container">
+
+                <div class="login-header">
+                    <h1>Masuk atau daftar</h1>
+                    <p>Pakai nomor HP aja. Belum punya akun? Otomatis dibuatkan.</p>
+                </div>
+
+                <!-- Step 1: Phone Input -->
+                <div class="login-step" id="step-phone">
+                    <div class="phone-input-group">
+                        <div class="phone-prefix">+62</div>
+                        <input
+                            type="tel"
+                            id="phone-input"
+                            placeholder="812 3456 7890"
+                            maxlength="15"
+                            autocomplete="tel"
+                            autofocus
+                        >
+                    </div>
+                    <p class="input-hint" id="phone-hint">
+                        <i data-lucide="info"></i>
+                        Nomor kamu aman. Kami kirim kode OTP untuk verifikasi.
+                    </p>
+                    <button class="btn btn-primary btn-lg login-submit" id="phone-submit" disabled>
+                        Lanjut <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Step 2: OTP (hidden initially, slides in) -->
+                <div class="login-step login-step-otp" id="step-otp">
+                    <div class="otp-sent-info" id="otp-sent-info">
+                        <i data-lucide="message-circle"></i>
+                        <span>Kode OTP dikirim ke <strong id="otp-phone-display">+62 812 xxx</strong></span>
+                    </div>
+                    <div class="otp-boxes" id="otp-boxes">
+                        <input type="text" maxlength="1" class="otp-box" data-index="0" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-box" data-index="1" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-box" data-index="2" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-box" data-index="3" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-box" data-index="4" inputmode="numeric">
+                        <input type="text" maxlength="1" class="otp-box" data-index="5" inputmode="numeric">
+                    </div>
+                    <p class="otp-error" id="otp-error">Kode OTP salah. Coba lagi.</p>
+                    <div class="otp-actions">
+                        <button class="btn-text" id="otp-resend" disabled>
+                            Kirim ulang <span id="otp-timer">(60s)</span>
+                        </button>
+                        <button class="btn-text" id="otp-change-phone">Ganti nomor</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Name Input (new users only, slides in) -->
+                <div class="login-step login-step-name" id="step-name">
+                    <div class="name-welcome">
+                        <div class="welcome-icon">
+                            <i data-lucide="party-popper"></i>
+                        </div>
+                        <h2>Welcome to Comum!</h2>
+                        <p>Satu langkah lagi — siapa nama kamu?</p>
+                    </div>
+                    <div class="name-input-group">
+                        <input type="text" id="name-input" placeholder="Nama kamu" maxlength="50" autocomplete="name">
+                    </div>
+                    <button class="btn btn-primary btn-lg login-submit" id="name-submit" disabled>
+                        Mulai <i data-lucide="arrow-right"></i>
+                    </button>
+                </div>
+
+                <!-- Social Proof -->
+                <div class="login-social-proof" id="login-social-proof">
+                    <div class="mini-avatars">
+                        <img src="./Asset/cycling1.png" alt="">
+                        <img src="./Asset/Woman_cycling.png" alt="">
+                        <img src="./Asset/Padel_and_bike_guy.png" alt="">
+                        <img src="./Asset/Cycling_HangoutGuy.png" alt="">
+                    </div>
+                    <span>Bergabung dengan <strong>400+</strong> member aktif</span>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer class="home-footer">
+        <div class="container">
+            <div class="home-footer-grid">
+                <div class="footer-col-brand">
+                    <h2 class="home-footer-logo">comum.</h2>
+                    <h3 class="newsletter-heading">Stay Ahead, Never Miss a Great Deal Again!</h3>
+                    <p>Get ready to discover all the latest trends, collaborations, and exclusive promotions!</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your Email" aria-label="Your email address" required>
+                        <button type="submit">Join Newsletter</button>
+                    </form>
+                </div>
+
+                <div class="footer-col-contact">
+                    <h4>Contact</h4>
+                    <p class="contact-block">
+                        <strong>Comum Panglima Polim</strong><br>
+                        Jl. Panglima Polim 8 No. 4 RT.001 RW.007 Melawai — Kebayoran Baru<br>
+                        Jakarta Selatan, DKI Jakarta — 12160
+                    </p>
+                    <p class="contact-block">
+                        <strong>Comum Alam Sutera</strong><br>
+                        Ruko Putra Square Lot 25A No. 4 RT.002 RW.014 Kunciran — Pinang Kota<br>
+                        Tangerang, Banten — 15325<br>
+                        info@comumspace.com
+                    </p>
+                </div>
+
+                <div class="footer-col-social">
+                    <h4>Follow Us!</h4>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @comumbike</a>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @comumpadel</a>
+                </div>
+            </div>
+
+            <div class="home-footer-bottom">
+                <p>&copy; 2026 Comum Bike and Padel</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="login.js"></script>
+    <script src="grid-debug.js"></script>
+</body>
+</html>

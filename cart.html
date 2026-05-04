@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - Comum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="grid-config.css">
+</head>
+<body class="cart-body">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">comum.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Event</a>
+                <div class="nav-dropdown" id="store-nav-dropdown">
+                    <a href="store.html" class="nav-dropdown-trigger">
+                        Store <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu nav-dropdown-menu--wide" style="grid-template-columns:repeat(3,1fr); min-width:520px">
+                        <a href="store.html" class="nav-dd-all" style="grid-column:1/-1">
+                            Semua Produk <i data-lucide="arrow-right"></i>
+                        </a>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Sepeda</span>
+                            <a href="store.html?cat=cycling&sub=jersey"   class="nav-dd-item">Jersey</a>
+                            <a href="store.html?cat=helmet"               class="nav-dd-item">Helm Sepeda</a>
+                            <a href="store.html?cat=cycling&sub=shoes"    class="nav-dd-item">Sepatu Road</a>
+                            <a href="store.html?cat=cycling&sub=computer" class="nav-dd-item">Cycling Computer</a>
+                            <a href="store.html?cat=parts&sub=wheelset"   class="nav-dd-item">Wheelset</a>
+                            <a href="store.html?cat=parts&sub=frame"      class="nav-dd-item">Frame</a>
+                            <a href="store.html?cat=parts&sub=drivetrain" class="nav-dd-item">Drivetrain</a>
+                            <a href="store.html?cat=parts&sub=steering"   class="nav-dd-item">Steering</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Padel</span>
+                            <a href="store.html?cat=padel&sub=racket" class="nav-dd-item">Raket Padel</a>
+                            <a href="store.html?cat=padel&sub=ball"   class="nav-dd-item">Padel Ball</a>
+                            <a href="store.html?cat=padel&sub=bag"    class="nav-dd-item">Padel Bag</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Lainnya</span>
+                            <a href="store.html?cat=suplemen"    class="nav-dd-item">Suplemen</a>
+                            <div class="nav-dd-divider"></div>
+                            <a href="store.html?cat=promo"       class="nav-dd-item nav-dd-item--red">Promo &amp; Sale</a>
+                            <a href="store.html?cat=new"         class="nav-dd-item nav-dd-item--green">Baru / New</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown" id="facilities-nav-dropdown">
+                    <a href="facilities.html" class="nav-dropdown-trigger">
+                        Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu" style="padding: 12px 16px; display: flex; flex-direction: column; gap: 6px;">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="facilities.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+            </div>
+            <a href="login.html" class="btn btn-primary nav-cta">
+                <i data-lucide="user"></i> Join Us!
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <a href="#" class="logo">comum.</a>
+            <button class="drawer-close" aria-label="Close menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Event</a>
+            <a href="store.html">Store</a>
+            <div class="nav-dropdown" id="facilities-nav-dropdown">
+                    <a href="facilities.html" class="nav-dropdown-trigger">
+                        Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu" style="padding: 12px 16px; display: flex; flex-direction: column; gap: 6px;">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="facilities.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+        </div>
+        <a href="login.html" class="btn btn-primary drawer-cta">Join Us!</a>
+    </div>
+
+    <!-- Cart Page -->
+    <section class="cart-page" id="cart-page">
+        <div class="container">
+
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <i data-lucide="chevron-right"></i>
+                <a href="store.html">Store</a>
+                <i data-lucide="chevron-right"></i>
+                <span>Keranjang</span>
+            </div>
+
+            <h1 class="cart-title">Keranjang kamu <span class="cart-title-count" id="cart-title-count">(0)</span></h1>
+
+            <!-- Empty State -->
+            <div class="cart-empty" id="cart-empty" style="display:none;">
+                <div class="cart-empty-icon">
+                    <i data-lucide="shopping-bag"></i>
+                </div>
+                <h2>Keranjang masih kosong</h2>
+                <p>Yuk explore produk padel & cycling di store kami.</p>
+                <a href="store.html" class="btn btn-primary btn-lg">
+                    <i data-lucide="shopping-bag"></i> Belanja Sekarang
+                </a>
+            </div>
+
+            <!-- Cart Content (hidden when empty) -->
+            <div class="cart-content" id="cart-content" style="display:none;">
+                <div class="cart-layout">
+
+                    <!-- Cart Items -->
+                    <div class="cart-items-section">
+                        <!-- Select all row -->
+                        <div class="cart-select-all">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" id="select-all" checked>
+                                <span class="checkmark"></span>
+                                <span>Pilih semua (<span id="select-count">0</span>)</span>
+                            </label>
+                            <button class="btn-text-danger" id="remove-selected">
+                                <i data-lucide="trash-2"></i> Hapus yang dipilih
+                            </button>
+                        </div>
+
+                        <!-- Buy Items Group -->
+                        <div class="cart-group" id="cart-group-buy">
+                            <div class="cart-group-header">
+                                <i data-lucide="shopping-bag"></i>
+                                <h3>Pembelian</h3>
+                            </div>
+                            <div class="cart-items" id="cart-items-buy">
+                                <!-- Rendered by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Rent Items Group -->
+                        <div class="cart-group" id="cart-group-rent" style="display:none;">
+                            <div class="cart-group-header cart-group-header-rent">
+                                <i data-lucide="calendar-clock"></i>
+                                <h3>Sewa</h3>
+                            </div>
+                            <div class="cart-items" id="cart-items-rent">
+                                <!-- Rendered by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Booking Items Group -->
+                        <div class="cart-group" id="cart-group-booking" style="display:none;">
+                            <div class="cart-group-header cart-group-header-rent">
+                                <i data-lucide="calendar-check"></i>
+                                <h3>Booking Fasilitas</h3>
+                            </div>
+                            <div class="cart-items" id="cart-items-booking">
+                                <!-- Rendered by JS -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Summary -->
+                    <aside class="cart-summary" id="cart-summary">
+                        <h3>Ringkasan pesanan</h3>
+
+                        <div class="summary-rows">
+                            <div class="summary-row">
+                                <span>Subtotal (<span id="summary-count">0</span> item)</span>
+                                <span id="summary-subtotal">Rp 0</span>
+                            </div>
+                            <div class="summary-row" id="summary-shipping-row">
+                                <span>Ongkos kirim</span>
+                                <span id="summary-shipping" class="shipping-free">Gratis</span>
+                            </div>
+                            <div class="summary-row" id="summary-rent-row" style="display:none;">
+                                <span>Total sewa</span>
+                                <span id="summary-rent-total">Rp 0</span>
+                            </div>
+                            <div class="summary-row" id="summary-discount-row" style="display:none;">
+                                <span>Diskon promo</span>
+                                <span id="summary-discount" class="text-green">-Rp 0</span>
+                            </div>
+                        </div>
+
+                        <div class="promo-code-section">
+                            <div class="promo-input-wrap">
+                                <input type="text" placeholder="Kode promo" id="promo-input">
+                                <button class="btn btn-ghost promo-apply" id="promo-apply">Pakai</button>
+                            </div>
+                            <span class="promo-feedback" id="promo-feedback"></span>
+                        </div>
+
+                        <div class="summary-total">
+                            <span>Total</span>
+                            <span id="summary-total">Rp 0</span>
+                        </div>
+
+                        <a href="checkout.html" class="btn btn-primary btn-lg checkout-btn" id="checkout-btn">
+                            <i data-lucide="lock"></i> Checkout
+                        </a>
+
+                        <div class="summary-trust">
+                            <div class="trust-mini"><i data-lucide="shield-check"></i> 100% Original</div>
+                            <div class="trust-mini"><i data-lucide="truck"></i> Free shipping > Rp 500rb</div>
+                            <div class="trust-mini"><i data-lucide="refresh-cw"></i> 7 hari pengembalian</div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="home-footer">
+        <div class="container">
+            <div class="home-footer-grid">
+                <div class="footer-col-brand">
+                    <h2 class="home-footer-logo">comum.</h2>
+                    <h3 class="newsletter-heading">Stay Ahead, Never Miss a Great Deal Again!</h3>
+                    <p>Get ready to discover all the latest trends, collaborations, and exclusive promotions!</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your Email" aria-label="Your email address" required>
+                        <button type="submit">Join Newsletter</button>
+                    </form>
+                </div>
+
+                <div class="footer-col-contact">
+                    <h4>Contact</h4>
+                    <p class="contact-block">
+                        <strong>Comum Panglima Polim</strong><br>
+                        Jl. Panglima Polim 8 No. 4 RT.001 RW.007 Melawai — Kebayoran Baru<br>
+                        Jakarta Selatan, DKI Jakarta — 12160
+                    </p>
+                    <p class="contact-block">
+                        <strong>Comum Alam Sutera</strong><br>
+                        Ruko Putra Square Lot 25A No. 4 RT.002 RW.014 Kunciran — Pinang Kota<br>
+                        Tangerang, Banten — 15325<br>
+                        info@comumspace.com
+                    </p>
+                </div>
+
+                <div class="footer-col-social">
+                    <h4>Follow Us!</h4>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @comumbike</a>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @comumpadel</a>
+                </div>
+            </div>
+
+            <div class="home-footer-bottom">
+                <p>&copy; 2026 Comum Bike and Padel</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle"></i>
+        <span id="toast-message">Item dihapus</span>
+    </div>
+
+    <script src="script.js?v=18"></script>
+    <script src="cart.js"></script>
+    <script src="grid-debug.js"></script>
+</body>
+</html>

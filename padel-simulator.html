@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padel Simulator - Comum</title>
+    <meta name="description" content="Booking sesi Padel Simulator di Comum Alam Sutera. Latihan padel dengan teknologi simulator — pilih jadwal & main hari ini.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="facilities.css">
+    <link rel="stylesheet" href="padel-simulator.css">
+    <link rel="stylesheet" href="grid-config.css">
+</head>
+<body class="ps-body">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">comum.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Event</a>
+                <div class="nav-dropdown" id="store-nav-dropdown">
+                    <a href="store.html" class="nav-dropdown-trigger">
+                        Store <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu nav-dropdown-menu--wide" style="grid-template-columns:repeat(3,1fr); min-width:520px">
+                        <a href="store.html" class="nav-dd-all" style="grid-column:1/-1">
+                            Semua Produk <i data-lucide="arrow-right"></i>
+                        </a>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Sepeda</span>
+                            <a href="store.html?cat=cycling&sub=jersey"   class="nav-dd-item">Jersey</a>
+                            <a href="store.html?cat=helmet"               class="nav-dd-item">Helm Sepeda</a>
+                            <a href="store.html?cat=cycling&sub=shoes"    class="nav-dd-item">Sepatu Road</a>
+                            <a href="store.html?cat=cycling&sub=computer" class="nav-dd-item">Cycling Computer</a>
+                            <a href="store.html?cat=parts&sub=wheelset"   class="nav-dd-item">Wheelset</a>
+                            <a href="store.html?cat=parts&sub=frame"      class="nav-dd-item">Frame</a>
+                            <a href="store.html?cat=parts&sub=drivetrain" class="nav-dd-item">Drivetrain</a>
+                            <a href="store.html?cat=parts&sub=steering"   class="nav-dd-item">Steering</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Padel</span>
+                            <a href="store.html?cat=padel&sub=racket" class="nav-dd-item">Raket Padel</a>
+                            <a href="store.html?cat=padel&sub=ball"   class="nav-dd-item">Padel Ball</a>
+                            <a href="store.html?cat=padel&sub=bag"    class="nav-dd-item">Padel Bag</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Lainnya</span>
+                            <a href="store.html?cat=suplemen"    class="nav-dd-item">Suplemen</a>
+                            <div class="nav-dd-divider"></div>
+                            <a href="store.html?cat=promo"       class="nav-dd-item nav-dd-item--red">Promo &amp; Sale</a>
+                            <a href="store.html?cat=new"         class="nav-dd-item nav-dd-item--green">Baru / New</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown" id="facilities-nav-dropdown">
+                    <a href="facilities.html" class="nav-dropdown-trigger active">
+                        Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu" style="padding: 12px 16px; display: flex; flex-direction: column; gap: 6px;">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="padel-simulator.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+            </div>
+            <a href="login.html" class="btn btn-primary nav-cta">
+                <i data-lucide="user"></i> Join Us!
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <a href="index.html" class="logo">comum.</a>
+            <button class="drawer-close" aria-label="Close menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Event</a>
+            <a href="store.html">Store</a>
+            <a href="facilities.html">Fasilitas</a>
+            <a href="padel-simulator.html">Padel Simulator</a>
+        </div>
+        <a href="login.html" class="btn btn-primary drawer-cta">Join Us!</a>
+    </div>
+
+    <main>
+
+        <!-- Breadcrumb -->
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span class="breadcrumb-sep">/</span>
+                <a href="facilities.html">Fasilitas</a>
+                <span class="breadcrumb-sep">/</span>
+                <span>Padel Simulator</span>
+            </div>
+        </div>
+
+        <!-- ========== HERO ========== -->
+        <section class="ps-hero">
+            <div class="container">
+                <div class="ps-hero-grid" data-reveal>
+                    <div class="ps-hero-body">
+                        <span class="section-label">Padel Simulator</span>
+                        <h1>Latihan padel kapan aja, tanpa nunggu lawan.</h1>
+                        <p>Simulator padel pertama di Comum. Pilih mode permainan, main bareng AI atau drill teknik, lalu review performa kamu setelah sesi selesai.</p>
+
+                        <div class="ps-hero-chips">
+                            <span class="ps-chip"><i data-lucide="map-pin"></i> Alam Sutera</span>
+                            <span class="ps-chip"><i data-lucide="clock"></i> 60 menit / sesi</span>
+                            <span class="ps-chip ps-chip--accent"><i data-lucide="tag"></i> Mulai Rp 99.000</span>
+                        </div>
+
+                        <div class="ps-hero-actions">
+                            <a href="#ps-book" class="btn btn-primary btn-lg">
+                                <i data-lucide="calendar"></i> Pilih Jadwal
+                            </a>
+                            <a href="#ps-how" class="btn btn-ghost btn-lg">
+                                <i data-lucide="play-circle"></i> Lihat Cara Kerjanya
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="ps-hero-visual">
+                        <img src="./Asset/WebP_Fasilitas_3D/padelsim_result.webp" alt="Padel Simulator 3D Render" class="ps-hero-img">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== HOW IT WORKS (3 illustrations) ========== -->
+        <section class="ps-how" id="ps-how">
+            <div class="container">
+                <div class="section-header text-center" data-reveal>
+                    <span class="section-label">Cara kerjanya</span>
+                    <h2>Apa itu Padel Simulator?</h2>
+                    <p class="ps-section-sub">Tiga langkah singkat — dari pilih mode sampai review performa kamu.</p>
+                </div>
+
+                <div class="ps-how-grid" data-reveal>
+                    <article class="ps-how-card">
+                        <span class="ps-how-step">01</span>
+                        <div class="ps-how-img-wrap">
+                            <!-- TODO: ganti dengan render 3D isometrik "Game Modes" -->
+                            <img src="./Asset/WebP_Fasilitas_3D/padelsim_result.webp" alt="Game Modes ilustrasi" class="ps-how-img">
+                        </div>
+                        <div class="ps-how-body">
+                            <h3>Pilih Mode Permainan</h3>
+                            <p>Match vs AI, drill teknik, smash practice, atau mode tantangan. Cocok untuk pemula yang baru belajar sampai pemain lanjutan yang mau asah skill spesifik.</p>
+                        </div>
+                    </article>
+
+                    <article class="ps-how-card">
+                        <span class="ps-how-step">02</span>
+                        <div class="ps-how-img-wrap">
+                            <!-- TODO: ganti dengan render 3D isometrik "How to Play" -->
+                            <img src="./Asset/WebP_Fasilitas_3D/padelsim_result.webp" alt="How to Play ilustrasi" class="ps-how-img">
+                        </div>
+                        <div class="ps-how-body">
+                            <h3>Main di Lapangan</h3>
+                            <p>Sensor mendeteksi pukulan kamu dan proyektor menampilkan bola realistis di dinding. Cukup ambil raket, posisikan diri, dan main seperti di lapangan asli.</p>
+                        </div>
+                    </article>
+
+                    <article class="ps-how-card">
+                        <span class="ps-how-step">03</span>
+                        <div class="ps-how-img-wrap">
+                            <!-- TODO: ganti dengan render 3D isometrik "Review Performance" -->
+                            <img src="./Asset/WebP_Fasilitas_3D/padelsim_result.webp" alt="Review Performance ilustrasi" class="ps-how-img">
+                        </div>
+                        <div class="ps-how-body">
+                            <h3>Review Performa</h3>
+                            <p>Setelah sesi, lihat statistik: akurasi, kecepatan pukulan, dan area yang perlu ditingkatkan. Replay aksi kunci untuk evaluasi langsung.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== INFO STRIP ========== -->
+        <section class="ps-info-strip">
+            <div class="container">
+                <div class="ps-info-grid" data-reveal>
+                    <div class="ps-info-item">
+                        <i data-lucide="clock"></i>
+                        <div>
+                            <span class="ps-info-label">Durasi</span>
+                            <strong>60 menit / sesi</strong>
+                        </div>
+                    </div>
+                    <div class="ps-info-item">
+                        <i data-lucide="user"></i>
+                        <div>
+                            <span class="ps-info-label">Pemain</span>
+                            <strong>1 orang per sesi</strong>
+                        </div>
+                    </div>
+                    <div class="ps-info-item">
+                        <i data-lucide="activity"></i>
+                        <div>
+                            <span class="ps-info-label">Analisis</span>
+                            <strong>Statistik real-time</strong>
+                        </div>
+                    </div>
+                    <div class="ps-info-item">
+                        <i data-lucide="map-pin"></i>
+                        <div>
+                            <span class="ps-info-label">Lokasi</span>
+                            <strong>Comum Alam Sutera</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== BOOKING SECTION ========== -->
+        <section class="ps-book" id="ps-book">
+            <div class="container">
+                <div class="section-header" data-reveal>
+                    <span class="section-label">Booking</span>
+                    <h2>Pilih jadwal kamu</h2>
+                </div>
+
+                <div class="ps-book-layout" data-reveal>
+                    <!-- Left: Court info + date strip + slot grid -->
+                    <div class="ps-book-main">
+                        <!-- Court info card -->
+                        <div class="ps-court-card">
+                            <div class="ps-court-head">
+                                <h3>Padel Simulator <i data-lucide="chevron-right"></i></h3>
+                                <span class="ps-court-loc">Comum Alam Sutera</span>
+                            </div>
+                            <div class="ps-court-tags">
+                                <span class="ps-court-tag"><i data-lucide="circle-dot"></i> Padel</span>
+                                <span class="ps-court-tag"><i data-lucide="home"></i> Indoor</span>
+                            </div>
+                        </div>
+
+                        <!-- Date strip -->
+                        <div class="ps-date-section">
+                            <div class="ps-date-head">
+                                <h4>Pilih tanggal</h4>
+                                <div class="ps-date-nav">
+                                    <button class="ps-date-arrow" id="ps-date-prev" aria-label="Sebelumnya">
+                                        <i data-lucide="chevron-left"></i>
+                                    </button>
+                                    <button class="ps-date-arrow" id="ps-date-next" aria-label="Berikutnya">
+                                        <i data-lucide="chevron-right"></i>
+                                    </button>
+                                    <button class="ps-date-arrow" id="ps-cal-toggle" aria-label="Buka kalender">
+                                        <i data-lucide="calendar"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="ps-date-strip-wrap">
+                                <div class="ps-date-strip" id="ps-date-strip">
+                                    <!-- Rendered by JS -->
+                                </div>
+                            </div>
+                            <!-- Traditional calendar -->
+                            <div class="ps-calendar" id="ps-calendar" hidden>
+                                <div class="ps-cal-head">
+                                    <button class="ps-cal-arrow" id="ps-cal-prev"><i data-lucide="chevron-left"></i></button>
+                                    <span class="ps-cal-title" id="ps-cal-title"></span>
+                                    <button class="ps-cal-arrow" id="ps-cal-next"><i data-lucide="chevron-right"></i></button>
+                                </div>
+                                <div class="ps-cal-grid" id="ps-cal-grid">
+                                    <!-- Rendered by JS -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slot expandable -->
+                        <div class="ps-slot-section">
+                            <button class="ps-slot-toggle" id="ps-slot-toggle" aria-expanded="true">
+                                <span>
+                                    <span id="ps-slot-count">9</span> Jadwal Tersedia
+                                    <span class="ps-slot-selected-badge" id="ps-slot-selected-badge" hidden>
+                                        · <span id="ps-slot-selected-count">0</span> dipilih
+                                    </span>
+                                </span>
+                                <i data-lucide="chevron-up"></i>
+                            </button>
+                            <div class="ps-slot-grid" id="ps-slot-grid">
+                                <!-- Rendered by JS -->
+                            </div>
+                        </div>
+
+                        <!-- Racket addon -->
+                        <div class="ps-addon-section">
+                            <div class="ps-addon-label-row">
+                                <span class="ps-addon-heading">Raket</span>
+                                <span class="ps-addon-sub">Pilih sebelum booking.</span>
+                            </div>
+                            <div class="ps-addon-grid">
+                                <button type="button" class="ps-addon-card is-selected" id="ps-addon-own">
+                                    <div class="ps-addon-icon"><i data-lucide="user-check"></i></div>
+                                    <div class="ps-addon-body">
+                                        <strong>Udah punya raket</strong>
+                                        <span>Bawa raket sendiri dari rumah.</span>
+                                    </div>
+                                    <span class="ps-addon-free">Gratis</span>
+                                </button>
+                                <button type="button" class="ps-addon-card" id="ps-addon-rent-btn">
+                                    <div class="ps-addon-icon"><i data-lucide="package"></i></div>
+                                    <div class="ps-addon-body">
+                                        <strong>Sewa raket</strong>
+                                        <span id="ps-addon-rent-desc">Pilih raket yang tersedia →</span>
+                                    </div>
+                                    <span class="ps-addon-price" id="ps-addon-rent-price">+Rp 60.000<small>/jam</small></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Summary (desktop) -->
+                    <aside class="ps-summary-card">
+                        <h4>Ringkasan booking</h4>
+                        <div class="ps-summary-rows">
+                            <div class="ps-summary-row">
+                                <span>Tanggal</span>
+                                <strong id="ps-sum-date">—</strong>
+                            </div>
+                            <div class="ps-summary-row">
+                                <span>Waktu</span>
+                                <strong id="ps-sum-time">Belum dipilih</strong>
+                            </div>
+                            <div class="ps-summary-row">
+                                <span>Durasi</span>
+                                <strong>60 menit</strong>
+                            </div>
+                            <div class="ps-summary-row">
+                                <span>Lokasi</span>
+                                <strong>Alam Sutera</strong>
+                            </div>
+                            <div class="ps-summary-row">
+                                <span>Raket</span>
+                                <strong id="ps-sum-racket">—</strong>
+                            </div>
+                        </div>
+
+                        <div class="ps-summary-breakdown">
+                            <div class="ps-summary-line">
+                                <span>Sesi simulator</span>
+                                <span id="ps-sum-line-session">Rp 99.000</span>
+                            </div>
+                            <div class="ps-summary-line" id="ps-sum-line-racket-row" style="display:none;">
+                                <span>Sewa raket</span>
+                                <span id="ps-sum-line-racket">—</span>
+                            </div>
+                        </div>
+                        <div class="ps-summary-total">
+                            <span>Total</span>
+                            <div class="ps-summary-total-price">
+                                <span class="ps-price-original" id="ps-sum-original">Rp 155.000</span>
+                                <strong id="ps-sum-total">Rp 99.000</strong>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-lg ps-book-cta" id="ps-book-cta" disabled>
+                            <i data-lucide="calendar-check"></i> Lanjut Booking
+                        </button>
+                        <p class="ps-summary-note">
+                            <i data-lucide="info"></i> Pilih waktu dulu untuk melanjutkan booking.
+                        </p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Racket rental modal -->
+        <div class="ps-modal-overlay" id="ps-racket-overlay" hidden></div>
+        <div class="ps-modal" id="ps-racket-modal" hidden role="dialog" aria-modal="true" aria-labelledby="ps-racket-title">
+            <div class="ps-modal-head">
+                <div>
+                    <h3 id="ps-racket-title">Sewa Raket Padel</h3>
+                    <p>Pilih raket &amp; durasi sewa.</p>
+                </div>
+                <button class="ps-modal-close" id="ps-racket-close" aria-label="Tutup">
+                    <i data-lucide="x"></i>
+                </button>
+            </div>
+
+            <div class="ps-modal-body">
+                <!-- Racket options -->
+                <div class="ps-modal-section-row">
+                    <h5 class="ps-modal-section-label">Pilih raket</h5>
+                    <div class="ps-racket-pagination" id="ps-racket-pagination">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+                <div class="ps-racket-grid" id="ps-racket-grid">
+                    <!-- Rendered by JS -->
+                </div>
+
+                <!-- Duration -->
+                <h5 class="ps-modal-section-label">Durasi sewa</h5>
+                <div class="ps-dur-grid">
+                    <button type="button" class="ps-dur-opt is-selected" data-dur="1" data-price="60000">
+                        <strong>1 Jam</strong>
+                        <span>Rp 60.000</span>
+                    </button>
+                    <button type="button" class="ps-dur-opt" data-dur="3" data-price="120000">
+                        <strong>3 Jam</strong>
+                        <span>Rp 120.000 <em>Hemat 33%</em></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="ps-modal-foot">
+                <button type="button" class="btn btn-ghost" id="ps-racket-skip">
+                    Pakai raket sendiri
+                </button>
+                <button type="button" class="btn btn-primary" id="ps-racket-ok" disabled>
+                    <i data-lucide="check"></i> Tambah ke Booking
+                </button>
+            </div>
+        </div>
+
+        <!-- Sticky bottom CTA (mobile only) -->
+        <div class="ps-sticky-cta" id="ps-sticky-cta" aria-hidden="true">
+            <div class="ps-sticky-info">
+                <span class="ps-sticky-label" id="ps-sticky-label">Pilih jadwal</span>
+                <strong class="ps-sticky-price" id="ps-sticky-price">Mulai Rp 99.000</strong>
+            </div>
+            <button class="btn btn-primary ps-sticky-btn" id="ps-sticky-btn" disabled>
+                Lanjut <i data-lucide="arrow-right"></i>
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="home-footer">
+        <div class="container">
+            <div class="home-footer-grid">
+                <div class="footer-col-brand">
+                    <h2 class="home-footer-logo">comum.</h2>
+                    <h3 class="newsletter-heading">Stay Ahead, Never Miss a Great Deal Again!</h3>
+                    <p>Get ready to discover all the latest trends, collaborations, and exclusive promotions!</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your Email" aria-label="Your email address" required>
+                        <button type="submit">Join Newsletter</button>
+                    </form>
+                </div>
+
+                <div class="footer-col-contact">
+                    <h4>Contact</h4>
+                    <p class="contact-block">
+                        <strong>Comum Panglima Polim</strong><br>
+                        Jl. Panglima Polim 8 No. 4 RT.001 RW.007 Melawai — Kebayoran Baru<br>
+                        Jakarta Selatan, DKI Jakarta — 12160
+                    </p>
+                    <p class="contact-block">
+                        <strong>Comum Alam Sutera</strong><br>
+                        Ruko Putra Square Lot 25A No. 4 RT.002 RW.014 Kunciran — Pinang Kota<br>
+                        Tangerang, Banten — 15325<br>
+                        info@comumspace.com
+                    </p>
+                </div>
+
+                <div class="footer-col-social">
+                    <h4>Follow Us!</h4>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @comumbike</a>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @comumpadel</a>
+                </div>
+            </div>
+
+            <div class="home-footer-bottom">
+                <p>&copy; 2026 Comum Bike and Padel</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle"></i>
+        <span id="toast-message">Booking ditambahkan</span>
+    </div>
+
+    <script src="script.js?v=18"></script>
+    <script src="padel-simulator.js"></script>
+    <script src="grid-debug.js"></script>
+</body>
+</html>

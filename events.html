@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Comum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="events.css?v=4">
+    <link rel="stylesheet" href="grid-config.css">
+    <script src="events-data.js?v=2"></script>
+    <script src="events-join.js?v=1"></script>
+</head>
+<body class="events-body">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">comum.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html" class="active">Event</a>
+                <div class="nav-dropdown" id="store-nav-dropdown">
+                    <a href="store.html" class="nav-dropdown-trigger">
+                        Store <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu nav-dropdown-menu--wide" style="grid-template-columns:repeat(3,1fr); min-width:520px">
+                        <a href="store.html" class="nav-dd-all" style="grid-column:1/-1">
+                            Semua Produk <i data-lucide="arrow-right"></i>
+                        </a>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Sepeda</span>
+                            <a href="store.html?cat=cycling&sub=jersey"   class="nav-dd-item">Jersey</a>
+                            <a href="store.html?cat=helmet"               class="nav-dd-item">Helm Sepeda</a>
+                            <a href="store.html?cat=cycling&sub=shoes"    class="nav-dd-item">Sepatu Road</a>
+                            <a href="store.html?cat=cycling&sub=computer" class="nav-dd-item">Cycling Computer</a>
+                            <a href="store.html?cat=parts&sub=wheelset"   class="nav-dd-item">Wheelset</a>
+                            <a href="store.html?cat=parts&sub=frame"      class="nav-dd-item">Frame</a>
+                            <a href="store.html?cat=parts&sub=drivetrain" class="nav-dd-item">Drivetrain</a>
+                            <a href="store.html?cat=parts&sub=steering"   class="nav-dd-item">Steering</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Padel</span>
+                            <a href="store.html?cat=padel&sub=racket" class="nav-dd-item">Raket Padel</a>
+                            <a href="store.html?cat=padel&sub=ball"   class="nav-dd-item">Padel Ball</a>
+                            <a href="store.html?cat=padel&sub=bag"    class="nav-dd-item">Padel Bag</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Lainnya</span>
+                            <a href="store.html?cat=suplemen"    class="nav-dd-item">Suplemen</a>
+                            <div class="nav-dd-divider"></div>
+                            <a href="store.html?cat=promo"       class="nav-dd-item nav-dd-item--red">Promo &amp; Sale</a>
+                            <a href="store.html?cat=new"         class="nav-dd-item nav-dd-item--green">Baru / New</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown" id="facilities-nav-dropdown">
+                    <a href="facilities.html" class="nav-dropdown-trigger">
+                        Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu" style="padding: 12px 16px; display: flex; flex-direction: column; gap: 6px;">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="facilities.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+            </div>
+            <a href="login.html" class="btn btn-primary nav-cta">
+                <i data-lucide="user"></i> Join Us!
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <a href="#" class="logo">comum.</a>
+            <button class="drawer-close" aria-label="Close menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Event</a>
+            <a href="store.html">Store</a>
+            <div class="nav-dropdown" id="facilities-nav-dropdown">
+                    <a href="facilities.html" class="nav-dropdown-trigger">
+                        Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu" style="padding: 12px 16px; display: flex; flex-direction: column; gap: 6px;">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="facilities.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+        </div>
+        <a href="login.html" class="btn btn-primary drawer-cta">Join Us!</a>
+    </div>
+
+    <!-- Events Hero -->
+    <section class="events-hero">
+        <div class="events-hero-bg">
+            <img src="./Asset/WebP/Cycling_GroupPic_result.webp" alt="" class="events-hero-image">
+            <div class="events-hero-overlay"></div>
+        </div>
+
+        <div class="events-hero-inner">
+            <div class="events-hero-text">
+                <span class="section-label section-label-light" data-reveal>Event Mingguan</span>
+                <h1 data-reveal data-reveal-delay="80">Olahraga lebih seru kalau <span class="hero-gradient-text">mainnya bareng.</span></h1>
+                <p class="events-hero-sub" data-reveal data-reveal-delay="160">
+                    Ikuti kegiatan komunitas Comum dan ketemu orang-orang yang sama semangatnya.
+                </p>
+
+                <ul class="events-hero-stats" data-reveal data-reveal-delay="240" aria-label="Live activity">
+                    <li class="stat-item"><strong>12</strong> events minggu ini</li>
+                    <li class="stat-item"><strong>247</strong> going</li>
+                </ul>
+
+                <div class="events-hero-actions" data-reveal data-reveal-delay="320">
+                    <a href="#all-events" class="btn btn-solid-white">Lihat Semua Event</a>
+                </div>
+            </div>
+
+            <aside class="events-hero-card" data-reveal data-reveal-delay="400" aria-label="Next event">
+                <div class="hero-card-head">
+                    <span class="hero-card-eyebrow">NEXT UP</span>
+                    <span class="hero-card-badge"><i data-lucide="bike"></i> Cycling</span>
+                </div>
+                <div class="hero-card-body">
+                    <div class="featured-date-box">
+                        <span class="date-month">APR</span>
+                        <span class="date-day">19</span>
+                    </div>
+                    <div class="hero-card-info">
+                        <span class="hero-card-day">Sunday • 05:30 AM</span>
+                        <h3 class="hero-card-title">Sunday Long Ride: Puncak Pass</h3>
+                        <span class="hero-card-loc"><i data-lucide="map-pin"></i> Comum Hub Sutera</span>
+                    </div>
+                </div>
+                <div class="hero-card-foot">
+                    <div class="featured-attendees">
+                        <div class="mini-avatars">
+                            <img src="./Asset/WebP/1_guy.webp" alt="">
+                            <img src="./Asset/WebP/Woman_cycling_result.webp" alt="">
+                            <img src="./Asset/WebP/Cycling_HangoutGuy_result.webp" alt="">
+                        </div>
+                        <span class="hero-card-going"><strong>24</strong> going</span>
+                    </div>
+                    <a href="#featured" class="btn btn-primary btn-sm">Join</a>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Featured Event -->
+    <section class="featured-event-section">
+        <div class="container">
+            <div class="section-header-inline">
+                <div>
+                    <span class="section-label">Featured This Week</span>
+                    <h2>Event yang lagi hot.</h2>
+                </div>
+                <a href="#all-events" class="link-arrow">Lihat semua <i data-lucide="arrow-right"></i></a>
+            </div>
+
+            <article class="featured-event">
+                <div class="featured-image">
+                    <img src="./Asset/WebP/Cycling_GroupPic2_result.webp" alt="Sunday Long Ride">
+                    <div class="featured-image-overlay"></div>
+                    <div class="featured-badges">
+                        <span class="event-badge badge-cycling">
+                            <i data-lucide="bike"></i> Cycling
+                        </span>
+                        <span class="event-badge badge-featured">
+                            <i data-lucide="flame"></i> Featured
+                        </span>
+                    </div>
+                    <div class="featured-live">
+                        <span class="live-dot"></span> Registration open
+                    </div>
+                </div>
+
+                <div class="featured-content">
+                    <div class="featured-meta-row">
+                        <div class="featured-date-box">
+                            <span class="date-month">APR</span>
+                            <span class="date-day">19</span>
+                        </div>
+                        <div class="featured-info">
+                            <span class="featured-day">Sunday • 05:30 AM</span>
+                            <h3>Sunday Long Ride: Puncak Pass</h3>
+                        </div>
+                    </div>
+
+                    <p class="featured-desc">
+                        120km epic ride to Puncak. Ada SAG support, rest stops di coffee shops, dan lunch di atas. Perfect untuk yang mau challenge naik level. Intermediate to advanced riders welcome.
+                    </p>
+
+                    <div class="featured-details">
+                        <div class="detail-chip">
+                            <i data-lucide="map-pin"></i>
+                            <span>Comum Hub Sutera</span>
+                        </div>
+                        <div class="detail-chip">
+                            <i data-lucide="route"></i>
+                            <span>120 km</span>
+                        </div>
+                        <div class="detail-chip">
+                            <i data-lucide="trending-up"></i>
+                            <span>1,800m elevation</span>
+                        </div>
+                        <div class="detail-chip difficulty-chip difficulty-hard">
+                            <i data-lucide="zap"></i>
+                            <span>Advanced</span>
+                        </div>
+                    </div>
+
+                    <div class="featured-bottom">
+                        <div class="featured-attendees">
+                            <div class="mini-avatars">
+                                <img src="./Asset/WebP/cycling1_result.webp" alt="">
+                                <img src="./Asset/WebP/Woman_cycling_result.webp" alt="">
+                                <img src="./Asset/WebP/Cycling_HangoutGuy_result.webp" alt="">
+                                <img src="./Asset/WebP/1_guy.webp" alt="">
+                            </div>
+                            <div>
+                                <strong>24 going</strong>
+                                <span>8 spots left</span>
+                            </div>
+                        </div>
+                        <div class="featured-actions">
+                            <button class="btn btn-ghost btn-icon featured-share" aria-label="Share" data-event-id="featured">
+                                <i data-lucide="share-2"></i>
+                            </button>
+                            <button class="btn btn-ghost btn-icon featured-bookmark" aria-label="Save" data-event-id="featured">
+                                <i data-lucide="bookmark"></i>
+                            </button>
+                            <button class="btn btn-primary btn-lg rsvp-btn" data-event-id="featured">
+                                <i data-lucide="calendar-check"></i> Join
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- All Events Section -->
+    <section class="all-events-section" id="all-events">
+        <div class="container">
+
+            <!-- Filter Bar -->
+            <div class="events-filter-bar">
+                <div class="event-category-tabs" id="event-category-tabs">
+                    <span class="evt-tab-indicator" aria-hidden="true"></span>
+                    <button class="evt-tab active" data-category="all">
+                        <i data-lucide="layout-grid"></i> Semua
+                        <span class="count">12</span>
+                    </button>
+                    <button class="evt-tab" data-category="cycling">
+                        <i data-lucide="bike"></i> Cycling
+                        <span class="count">6</span>
+                    </button>
+                    <button class="evt-tab" data-category="padel">
+                        <i data-lucide="circle-dot"></i> Padel
+                        <span class="count">4</span>
+                    </button>
+
+                    <button class="evt-tab" data-category="social">
+                        <i data-lucide="coffee"></i> Social
+                        <span class="count">1</span>
+                    </button>
+                </div>
+
+                <div class="events-view-toggle">
+                    <button class="view-btn active" data-view="grid" aria-label="Grid view">
+                        <i data-lucide="layout-grid"></i><span class="view-btn-label">Grid</span>
+                    </button>
+                    <button class="view-btn" data-view="calendar" aria-label="Calendar view">
+                        <i data-lucide="calendar"></i><span class="view-btn-label">Calendar</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Grid View -->
+            <div class="events-grid-view" id="events-grid-view">
+                <div class="events-grid" id="events-grid">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="events-load-more" id="events-load-more-wrap">
+                    <button class="btn btn-ghost btn-lg" id="events-load-more-btn">
+                        <i data-lucide="rotate-cw"></i> Load more events
+                    </button>
+                </div>
+            </div>
+
+            <!-- Calendar View -->
+            <div class="events-calendar-view" id="events-calendar-view" style="display: none;">
+                <div class="calendar-header">
+                    <button class="cal-nav" id="cal-prev" aria-label="Previous month"><i data-lucide="chevron-left"></i></button>
+                    <h3 id="cal-month-label">April 2026</h3>
+                    <button class="cal-nav" id="cal-next" aria-label="Next month"><i data-lucide="chevron-right"></i></button>
+                </div>
+
+                <div class="calendar-weekdays">
+                    <div>Min</div>
+                    <div>Sen</div>
+                    <div>Sel</div>
+                    <div>Rab</div>
+                    <div>Kam</div>
+                    <div>Jum</div>
+                    <div>Sab</div>
+                </div>
+
+                <div class="calendar-grid" id="calendar-grid">
+                    <!-- Populated by JS -->
+                </div>
+
+                <div class="calendar-legend">
+                    <span class="legend-item"><span class="dot dot-cycling"></span> Cycling</span>
+                    <span class="legend-item"><span class="dot dot-padel"></span> Padel</span>
+
+                    <span class="legend-item"><span class="dot dot-social"></span> Social</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Community Highlights / Past Events -->
+    <section class="past-events-section">
+        <div class="container">
+            <div class="section-header text-center">
+                <span class="section-label">Recap</span>
+                <h2>Highlights dari event sebelumnya.</h2>
+                <p class="section-desc">Suasana asik setiap minggunya. Join community kami untuk nggak ketinggalan!</p>
+            </div>
+
+            <div class="highlights-grid">
+                <div class="highlight-card highlight-large">
+                    <img src="./Asset/WebP/Cycling_HangoutUndian_result.webp" alt="Community hangout">
+                    <div class="highlight-info">
+                        <span class="highlight-date">5 April 2026</span>
+                        <h4>Community Hangout & Lucky Draw</h4>
+                        <span class="highlight-attended">156 attended</span>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="./Asset/WebP/Padel_Photo1_result.webp" alt="Padel night">
+                    <div class="highlight-info">
+                        <span class="highlight-date">2 April 2026</span>
+                        <h4>Padel Night League</h4>
+                        <span class="highlight-attended">48 attended</span>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="./Asset/WebP/Cycliong_GroupPicPoint_result.webp" alt="Group ride">
+                    <div class="highlight-info">
+                        <span class="highlight-date">29 March 2026</span>
+                        <h4>Morning Coffee Ride</h4>
+                        <span class="highlight-attended">32 attended</span>
+                    </div>
+                </div>
+                <div class="highlight-card">
+                    <img src="./Asset/WebP/Cycling_GroupPic2_result.webp" alt="Group ride">
+                    <div class="highlight-info">
+                        <span class="highlight-date">23 March 2026</span>
+                        <h4>Weekend Warrior Ride</h4>
+                        <span class="highlight-attended">42 attended</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Articles (data-driven, rendered by script.js) -->
+    <section class="articles-section" id="articles">
+        <div class="container">
+            <div class="articles-header" data-reveal>
+                <h2>Articles</h2>
+                <a href="#" class="link-arrow">See All <i data-lucide="arrow-right"></i></a>
+            </div>
+            <div class="articles-list" id="articles-list" data-reveal></div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="home-footer">
+        <div class="container">
+            <div class="home-footer-grid">
+                <div class="footer-col-brand">
+                    <h2 class="home-footer-logo">comum.</h2>
+                    <h3 class="newsletter-heading">Stay Ahead, Never Miss a Great Deal Again!</h3>
+                    <p>Get ready to discover all the latest trends, collaborations, and exclusive promotions!</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your Email" aria-label="Your email address" required>
+                        <button type="submit">Join Newsletter</button>
+                    </form>
+                </div>
+
+                <div class="footer-col-contact">
+                    <h4>Contact</h4>
+                    <p class="contact-block">
+                        <strong>Comum Panglima Polim</strong><br>
+                        Jl. Panglima Polim 8 No. 4 RT.001 RW.007 Melawai — Kebayoran Baru<br>
+                        Jakarta Selatan, DKI Jakarta — 12160
+                    </p>
+                    <p class="contact-block">
+                        <strong>Comum Alam Sutera</strong><br>
+                        Ruko Putra Square Lot 25A No. 4 RT.002 RW.014 Kunciran — Pinang Kota<br>
+                        Tangerang, Banten — 15325<br>
+                        info@comumspace.com
+                    </p>
+                </div>
+
+                <div class="footer-col-social">
+                    <h4>Follow Us!</h4>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @comumbike</a>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @comumpadel</a>
+                </div>
+            </div>
+
+            <div class="home-footer-bottom">
+                <p>&copy; 2026 Comum Bike and Padel</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Event Detail Modal (Mirrors Homepage) -->
+    <div id="event-modal" class="comum-modal" aria-hidden="true">
+        <div class="comum-modal-overlay" data-modal-close></div>
+        <div class="comum-modal-container">
+            <button class="comum-modal-close" data-modal-close aria-label="Close modal">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="comum-modal-content">
+                <div class="modal-image-col">
+                    <img id="modal-event-img" src="" alt="Event Image">
+                    <span id="modal-event-badge" class="badge"></span>
+                </div>
+                <div class="modal-details-col" id="modal-details-view">
+                    <h3 id="modal-event-title">Event Title</h3>
+                    <div class="event-meta">
+                        <div class="meta-item"><i data-lucide="calendar"></i> <span id="modal-event-date"></span></div>
+                        <div class="meta-item"><i data-lucide="clock"></i> <span id="modal-event-time"></span></div>
+                        <div class="meta-item"><i data-lucide="map-pin"></i> <span id="modal-event-location"></span></div>
+                    </div>
+                    
+                    <div class="event-rich-details">
+                        <div class="detail-row">
+                            <span class="detail-label">Host:</span>
+                            <span class="detail-val" id="modal-event-host">Comum Community</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Level:</span>
+                            <span class="detail-val" id="modal-event-level">All Levels</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Biaya:</span>
+                            <span class="detail-val" id="modal-event-price">Gratis</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Sisa Slot:</span>
+                            <span class="detail-val" id="modal-event-slots">Available</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-label">Syarat:</span>
+                            <span class="detail-val" id="modal-event-reqs">None</span>
+                        </div>
+                    </div>
+
+                    <p class="modal-event-desc" id="modal-event-desc">
+                        Ayo bergabung bersama komunitas Comum! Pastikan kamu hadir tepat waktu.
+                    </p>
+                    <div class="modal-actions">
+                        <button id="modal-btn-join" class="btn btn-primary">Daftar</button>
+                        <div class="modal-action-row">
+                            <a id="modal-btn-wa" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-wa">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                                Tanya Admin WA
+                            </a>
+                            <a id="modal-btn-maps" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                                <i data-lucide="map"></i> Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success State (Hidden initially) -->
+                <div class="modal-details-col modal-success-state" id="modal-success-view" style="display: none;">
+                    <div class="success-icon">
+                        <i data-lucide="check-circle-2"></i>
+                    </div>
+                    <h3>Pendaftaran Berhasil!</h3>
+                    <p>Kamu sudah terdaftar untuk event ini. Konfirmasi dan detail lengkap telah dikirim ke nomor WhatsApp kamu.</p>
+                    <div class="success-actions">
+                        <a id="modal-success-wa" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-wa-solid">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px; vertical-align: middle;"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                            Gabung Grup WA Event
+                        </a>
+                        <button class="btn btn-ghost" data-modal-close>Tutup</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle"></i>
+        <span id="toast-message">RSVP berhasil!</span>
+    </div>
+
+    <script src="script.js?v=18"></script>
+    <script src="events.js?v=5"></script>
+    <script src="grid-debug.js"></script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Comum</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="stylesheet" href="profile.css?v=5">
+    <link rel="stylesheet" href="grid-config.css">
+    <script src="events-data.js?v=2"></script>
+    <script src="events-join.js?v=1"></script>
+</head>
+<body class="profile-body">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">comum.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Event</a>
+                <div class="nav-dropdown" id="store-nav-dropdown">
+                    <a href="store.html" class="nav-dropdown-trigger">
+                        Store <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu nav-dropdown-menu--wide" style="grid-template-columns:repeat(3,1fr); min-width:520px">
+                        <a href="store.html" class="nav-dd-all" style="grid-column:1/-1">
+                            Semua Produk <i data-lucide="arrow-right"></i>
+                        </a>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Sepeda</span>
+                            <a href="store.html?cat=cycling&sub=jersey"   class="nav-dd-item">Jersey</a>
+                            <a href="store.html?cat=helmet"               class="nav-dd-item">Helm Sepeda</a>
+                            <a href="store.html?cat=cycling&sub=shoes"    class="nav-dd-item">Sepatu Road</a>
+                            <a href="store.html?cat=cycling&sub=computer" class="nav-dd-item">Cycling Computer</a>
+                            <a href="store.html?cat=parts&sub=wheelset"   class="nav-dd-item">Wheelset</a>
+                            <a href="store.html?cat=parts&sub=frame"      class="nav-dd-item">Frame</a>
+                            <a href="store.html?cat=parts&sub=drivetrain" class="nav-dd-item">Drivetrain</a>
+                            <a href="store.html?cat=parts&sub=steering"   class="nav-dd-item">Steering</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Padel</span>
+                            <a href="store.html?cat=padel&sub=racket" class="nav-dd-item">Raket Padel</a>
+                            <a href="store.html?cat=padel&sub=ball"   class="nav-dd-item">Padel Ball</a>
+                            <a href="store.html?cat=padel&sub=bag"    class="nav-dd-item">Padel Bag</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Lainnya</span>
+                            <a href="store.html?cat=suplemen"    class="nav-dd-item">Suplemen</a>
+                            <div class="nav-dd-divider"></div>
+                            <a href="store.html?cat=promo"       class="nav-dd-item nav-dd-item--red">Promo &amp; Sale</a>
+                            <a href="store.html?cat=new"         class="nav-dd-item nav-dd-item--green">Baru / New</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown" id="facilities-nav-dropdown">
+                    <a href="facilities.html" class="nav-dropdown-trigger">
+                        Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu" style="padding: 12px 16px; display: flex; flex-direction: column; gap: 6px;">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="facilities.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+            </div>
+            <a href="login.html" class="btn btn-primary nav-cta">
+                <i data-lucide="user"></i> Join Us!
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <a href="#" class="logo">comum.</a>
+            <button class="drawer-close" aria-label="Close menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Event</a>
+            <a href="store.html">Store</a>
+            <div class="nav-dropdown" id="facilities-nav-dropdown">
+                    <a href="facilities.html" class="nav-dropdown-trigger">
+                        Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu" style="padding: 12px 16px; display: flex; flex-direction: column; gap: 6px;">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="facilities.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+        </div>
+        <a href="login.html" class="btn btn-primary drawer-cta">Join Us!</a>
+    </div>
+
+    <!-- Profile Hero / Membership Card -->
+    <section class="profile-hero">
+        <div class="profile-hero-bg"></div>
+        <div class="container">
+            <div class="profile-card">
+                <!-- Avatar & Info -->
+                <div class="profile-identity">
+                    <button type="button" class="profile-avatar-wrap" id="profile-avatar-btn" aria-label="Ubah foto profil">
+                        <div class="profile-avatar" id="profile-avatar">
+                            <!-- Initials rendered by JS -->
+                        </div>
+                        <span class="profile-avatar-edit"><i data-lucide="camera"></i></span>
+                    </button>
+                    <div class="profile-info">
+                        <h1 id="profile-name">Member</h1>
+                        <p class="profile-phone" id="profile-phone">+62 xxx</p>
+                        <span class="profile-joined"><i data-lucide="calendar"></i> Member sejak <span id="profile-joined-date">-</span></span>
+                    </div>
+                </div>
+
+                <!-- Membership Tier -->
+                <button type="button" class="membership-card" id="membership-card">
+                    <div class="tier-badge" id="tier-badge">
+                        <span class="tier-icon" id="tier-icon"></span>
+                        <div class="tier-text">
+                            <span class="tier-label" id="tier-label">ROOKIE</span>
+                            <span class="tier-name" id="tier-name">Rookie</span>
+                        </div>
+                        <span class="tier-detail-arrow" aria-hidden="true"><i data-lucide="chevron-right"></i></span>
+                    </div>
+                    <div class="tier-progress">
+                        <div class="progress-info">
+                            <span><strong id="points-current">0</strong> poin</span>
+                            <span id="points-next-text">350 poin lagi ke <strong id="next-tier-name">Crew</strong></span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="tier-perks" id="tier-perks">
+                        <!-- Rendered by JS -->
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Row -->
+    <section class="profile-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <button type="button" class="stat-card" data-tab-target="orders">
+                    <div class="stat-icon"><i data-lucide="shopping-bag"></i></div>
+                    <div>
+                        <strong id="stat-orders">0</strong>
+                        <span>Pesanan</span>
+                    </div>
+                </button>
+                <button type="button" class="stat-card" data-tab-target="events">
+                    <div class="stat-icon stat-icon-green"><i data-lucide="calendar-check"></i></div>
+                    <div>
+                        <strong id="stat-events">0</strong>
+                        <span>Event dihadiri</span>
+                    </div>
+                </button>
+                <button type="button" class="stat-card" data-tab-target="rewards">
+                    <div class="stat-icon stat-icon-yellow"><i data-lucide="trophy"></i></div>
+                    <div>
+                        <strong id="stat-points">0</strong>
+                        <span>Total poin</span>
+                    </div>
+                </button>
+                <button type="button" class="stat-card" data-tab-target="wishlist">
+                    <div class="stat-icon stat-icon-purple"><i data-lucide="heart"></i></div>
+                    <div>
+                        <strong id="stat-wishlist">0</strong>
+                        <span>Wishlist</span>
+                    </div>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Tabs -->
+    <section class="profile-dashboard">
+        <div class="container">
+            <div class="dash-tabs" id="dash-tabs">
+                <span class="dash-tab-indicator" aria-hidden="true"></span>
+                <button class="dash-tab active" data-tab="orders">
+                    <i data-lucide="shopping-bag"></i> Pesanan
+                </button>
+                <button class="dash-tab" data-tab="events">
+                    <i data-lucide="calendar"></i> Event Saya
+                </button>
+                <button class="dash-tab" data-tab="wishlist">
+                    <i data-lucide="heart"></i> Wishlist
+                </button>
+                <button class="dash-tab" data-tab="rewards">
+                    <i data-lucide="gift"></i> Poin & Rewards
+                </button>
+                <button class="dash-tab" data-tab="settings">
+                    <i data-lucide="settings"></i> Pengaturan
+                </button>
+            </div>
+
+            <!-- Orders Tab -->
+            <div class="dash-panel active" id="panel-orders">
+                <div class="panel-empty" id="orders-empty">
+                    <i data-lucide="package"></i>
+                    <h3>Belum ada pesanan</h3>
+                    <p>Mulai belanja di store kami untuk melihat riwayat pesanan.</p>
+                    <a href="store.html" class="btn btn-primary">Ke Store</a>
+                </div>
+                <div class="orders-list" id="orders-list">
+                    <!-- Rendered by JS -->
+                </div>
+            </div>
+
+            <!-- Events Tab -->
+            <div class="dash-panel" id="panel-events">
+                <!-- Saved / Bookmarked Events -->
+                <div class="events-group">
+                    <div class="events-group-header">
+                        <h3><i data-lucide="bookmark"></i> Event yang disimpan</h3>
+                        <span class="events-group-count" id="saved-events-count">0</span>
+                    </div>
+                    <div class="panel-empty panel-empty-inline" id="saved-events-empty">
+                        <i data-lucide="bookmark"></i>
+                        <h4>Belum ada event disimpan</h4>
+                        <p>Tap icon bookmark di halaman event untuk menyimpannya di sini.</p>
+                        <a href="events.html" class="btn btn-ghost btn-sm"><i data-lucide="calendar"></i> Jelajahi event</a>
+                    </div>
+                    <div class="events-list" id="saved-events-list"></div>
+                </div>
+
+                <!-- Upcoming / Past Events (mock) -->
+                <div class="events-group">
+                    <div class="events-group-header">
+                        <h3><i data-lucide="calendar-check"></i> Event saya</h3>
+                        <span class="events-group-count" id="my-events-count">0</span>
+                    </div>
+                    <div class="panel-empty panel-empty-inline" id="events-empty">
+                        <i data-lucide="calendar-x"></i>
+                        <h4>Belum ada event</h4>
+                        <p>RSVP ke event seru di halaman events.</p>
+                        <a href="events.html" class="btn btn-primary"><i data-lucide="arrow-right"></i> Lihat Events</a>
+                    </div>
+                    <div class="events-list" id="events-list"></div>
+                </div>
+            </div>
+
+            <!-- Wishlist Tab -->
+            <div class="dash-panel" id="panel-wishlist">
+                <div class="events-group">
+                    <div class="events-group-header">
+                        <h3><i data-lucide="heart"></i> Produk yang kamu suka</h3>
+                        <span class="events-group-count" id="wishlist-count">0</span>
+                    </div>
+                    <div class="panel-empty panel-empty-inline" id="wishlist-empty">
+                        <i data-lucide="heart"></i>
+                        <h4>Wishlist masih kosong</h4>
+                        <p>Tap icon hati di produk store untuk menyimpannya di sini.</p>
+                        <a href="store.html" class="btn btn-primary"><i data-lucide="shopping-bag"></i> Jelajahi Store</a>
+                    </div>
+                    <div class="wishlist-list" id="wishlist-list"></div>
+                </div>
+            </div>
+
+            <!-- Rewards Tab -->
+            <div class="dash-panel" id="panel-rewards">
+                <div class="rewards-balance-card">
+                    <div class="rewards-balance-text">
+                        <span class="rewards-label">Poin kamu saat ini</span>
+                        <h2 id="rewards-points-display">0</h2>
+                        <p class="rewards-note">Setiap Rp 10.000 belanja = 1 poin</p>
+                    </div>
+                    <div class="rewards-balance-icon">
+                        <i data-lucide="sparkles"></i>
+                    </div>
+                </div>
+
+                <div class="rewards-section">
+                    <div class="rewards-section-header">
+                        <h3>Tier membership</h3>
+                        <span class="rewards-section-sub">Partner stores komunitas Comum</span>
+                    </div>
+                    <div class="tier-info-list" id="tier-info-list">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <div class="rewards-section">
+                    <div class="rewards-section-header">
+                        <h3>Riwayat poin</h3>
+                    </div>
+                    <div class="points-list" id="points-list">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+
+                <div class="rewards-section">
+                    <div class="rewards-section-header">
+                        <h3>Reward yang bisa diklaim</h3>
+                        <span class="rewards-section-sub">Tukar poin dengan voucher partner</span>
+                    </div>
+                    <div class="rewards-claim-list" id="rewards-claim-list">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Tab -->
+            <div class="dash-panel" id="panel-settings">
+                <div class="settings-section">
+                    <h3><i data-lucide="user-circle"></i> Profil</h3>
+                    <div class="settings-form">
+                        <div class="settings-field">
+                            <label>Nama</label>
+                            <input type="text" id="settings-name" placeholder="Nama kamu">
+                            <span class="settings-field-hint" id="settings-name-hint"></span>
+                        </div>
+                        <div class="settings-field">
+                            <label>Email</label>
+                            <input type="email" id="settings-email" placeholder="email@kamu.com">
+                        </div>
+                        <div class="settings-field settings-field-row">
+                            <div>
+                                <label>Nomor HP</label>
+                                <input type="tel" id="settings-phone" disabled>
+                            </div>
+                            <button type="button" class="btn btn-ghost btn-sm" id="edit-phone-btn">
+                                <i data-lucide="pencil"></i> Edit
+                            </button>
+                        </div>
+                        <button class="btn btn-primary" id="save-profile">
+                            <i data-lucide="save"></i> Simpan perubahan
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3><i data-lucide="sliders-horizontal"></i> Preferensi olahraga</h3>
+                    <div class="settings-prefs" id="settings-prefs">
+                        <div class="settings-prefs-summary" id="settings-prefs-summary">
+                            <span class="settings-prefs-empty">Belum diisi</span>
+                        </div>
+                        <a class="btn btn-ghost btn-sm" href="onboarding.html?next=profile.html">
+                            <i data-lucide="pencil"></i> Edit preferensi
+                        </a>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3><i data-lucide="bell"></i> Notifikasi</h3>
+                    <div class="settings-toggles">
+                        <label class="setting-toggle">
+                            <span>Event reminder via WhatsApp</span>
+                            <input type="checkbox" data-pref="notif-event" checked>
+                            <span class="toggle-switch"></span>
+                        </label>
+                        <label class="setting-toggle">
+                            <span>Promo & diskon</span>
+                            <input type="checkbox" data-pref="notif-promo" checked>
+                            <span class="toggle-switch"></span>
+                        </label>
+                        <label class="setting-toggle">
+                            <span>Update komunitas</span>
+                            <input type="checkbox" data-pref="notif-community" checked>
+                            <span class="toggle-switch"></span>
+                        </label>
+                        <label class="setting-toggle">
+                            <span>Newsletter mingguan</span>
+                            <input type="checkbox" data-pref="notif-newsletter">
+                            <span class="toggle-switch"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="settings-section">
+                    <h3><i data-lucide="lock"></i> Keamanan</h3>
+                    <div class="settings-actions">
+                        <button class="btn btn-ghost" id="change-password-btn">
+                            <i data-lucide="key-round"></i> Ganti password
+                        </button>
+                        <button class="btn btn-ghost" id="manage-sessions-btn">
+                            <i data-lucide="monitor-smartphone"></i> Perangkat aktif
+                        </button>
+                    </div>
+                </div>
+
+                <div class="settings-section settings-danger">
+                    <h3><i data-lucide="alert-triangle"></i> Zona bahaya</h3>
+                    <div class="settings-actions">
+                        <button class="btn btn-ghost" id="logout-btn">
+                            <i data-lucide="log-out"></i> Logout
+                        </button>
+                        <button class="btn btn-ghost btn-danger" id="delete-account-btn">
+                            <i data-lucide="trash-2"></i> Hapus akun
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="home-footer">
+        <div class="container">
+            <div class="home-footer-grid">
+                <div class="footer-col-brand">
+                    <h2 class="home-footer-logo">comum.</h2>
+                    <h3 class="newsletter-heading">Stay Ahead, Never Miss a Great Deal Again!</h3>
+                    <p>Get ready to discover all the latest trends, collaborations, and exclusive promotions!</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your Email" aria-label="Your email address" required>
+                        <button type="submit">Join Newsletter</button>
+                    </form>
+                </div>
+
+                <div class="footer-col-contact">
+                    <h4>Contact</h4>
+                    <p class="contact-block">
+                        <strong>Comum Panglima Polim</strong><br>
+                        Jl. Panglima Polim 8 No. 4 RT.001 RW.007 Melawai — Kebayoran Baru<br>
+                        Jakarta Selatan, DKI Jakarta — 12160
+                    </p>
+                    <p class="contact-block">
+                        <strong>Comum Alam Sutera</strong><br>
+                        Ruko Putra Square Lot 25A No. 4 RT.002 RW.014 Kunciran — Pinang Kota<br>
+                        Tangerang, Banten — 15325<br>
+                        info@comumspace.com
+                    </p>
+                </div>
+
+                <div class="footer-col-social">
+                    <h4>Follow Us!</h4>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @comumbike</a>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-instagram"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg> @comumpadel</a>
+                </div>
+            </div>
+
+            <div class="home-footer-bottom">
+                <p>&copy; 2026 Comum Bike and Padel</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== Generic Modal (content swapped per action) ===== -->
+    <div class="modal" id="profile-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content modal-content-lg">
+            <button class="modal-close" aria-label="Close"><i data-lucide="x"></i></button>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ===== Confirm Modal (for destructive actions) ===== -->
+    <div class="modal" id="confirm-modal" role="alertdialog" aria-modal="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content modal-content-sm">
+            <div class="confirm-icon" id="confirm-icon"><i data-lucide="alert-triangle"></i></div>
+            <h3 id="confirm-title">Yakin?</h3>
+            <p id="confirm-message">Aksi ini nggak bisa di-undo.</p>
+            <div class="confirm-actions">
+                <button class="btn btn-ghost" id="confirm-cancel">Batal</button>
+                <button class="btn btn-primary" id="confirm-ok">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i data-lucide="check-circle"></i>
+        <span id="toast-message">Saved!</span>
+    </div>
+
+    <script src="script.js?v=18"></script>
+    <script src="products-data.js"></script>
+    <script src="profile.js?v=10"></script>
+    <script src="grid-debug.js"></script>
+</body>
+</html>

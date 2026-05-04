@@ -1,0 +1,279 @@
+/* =============================================================
+   GRID CONFIG — The only file you need to edit to tune the grid.
+   -------------------------------------------------------------
+   This file is linked from EVERY page.  It defines:
+
+     1. GLOBAL tokens (at :root)  — shared across every page:
+          --grid-cols       columns in the grid
+          --grid-gutter     gap between columns
+          --grid-margin     outer left/right margin
+        These change at tablet/phone breakpoints.
+
+     2. STORE-SPECIFIC tokens (scoped to .store-main)
+          --sidebar-span, --content-span, --products-per-row
+
+     3. UTILITY CLASSES:
+          .grid-12          makes an element a 12-col grid
+          .col-span-N       makes a child span N columns (1..12)
+          .grid-margin      applies --grid-margin as horizontal padding
+
+     4. PAGE LAYOUT CONVERSIONS
+          Rules that wire existing layouts (events grid, cart,
+          checkout, product detail, profile stats) to the grid.
+
+     5. DEBUG OVERLAY  — Ctrl+G / Cmd+G or toggleGrid() to toggle.
+
+   Breakpoints:  Desktop (default) · Tablet ≤1024 · Phone ≤768
+   ============================================================= */
+
+
+/* =============================================================
+   1. GLOBAL TOKENS
+   ============================================================= */
+:root {
+    /* DESKTOP */
+    --grid-cols:   12;
+    --grid-gutter: 12px;
+    --grid-margin: 24px;
+}
+
+@media (max-width: 1024px) {
+    :root {
+        --grid-cols:   8;
+        --grid-gutter: 12px;
+        --grid-margin: 48px;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        --grid-cols:   4;
+        --grid-gutter: 12px;
+        --grid-margin: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --grid-gutter: 10px;
+    }
+}
+
+
+/* =============================================================
+   2. STORE-SPECIFIC TOKENS
+   ============================================================= */
+.store-main {
+    /* DESKTOP */
+    --sidebar-span:     3;
+    --content-span:     9;
+    --products-per-row: 4;
+}
+
+@media (max-width: 1024px) {
+    .store-main {
+        --sidebar-span:     2;
+        --content-span:     6;
+        --products-per-row: 3;
+    }
+}
+
+@media (max-width: 768px) {
+    .store-main {
+        --sidebar-span:     4;
+        --content-span:     4;
+        --products-per-row: 2;
+    }
+}
+
+
+/* =============================================================
+   3. UTILITY CLASSES  (use on any page)
+   ============================================================= */
+
+/* Applies the current --grid-margin as horizontal padding.
+   Opt-in so we don't break pages that already use .container. */
+.grid-margin {
+    max-width: 100%;
+    padding-left:  var(--grid-margin);
+    padding-right: var(--grid-margin);
+}
+
+/* Generic 12-column (or whatever --grid-cols is) grid. */
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: var(--grid-gutter);
+}
+
+/* col-span utilities.  Use min(N, --grid-cols) so that a
+   `col-span-9` on a page where --grid-cols drops to 4 or 8
+   degrades gracefully (caps at the active column count). */
+.col-span-1  { grid-column: span min(1,  var(--grid-cols)); }
+.col-span-2  { grid-column: span min(2,  var(--grid-cols)); }
+.col-span-3  { grid-column: span min(3,  var(--grid-cols)); }
+.col-span-4  { grid-column: span min(4,  var(--grid-cols)); }
+.col-span-5  { grid-column: span min(5,  var(--grid-cols)); }
+.col-span-6  { grid-column: span min(6,  var(--grid-cols)); }
+.col-span-7  { grid-column: span min(7,  var(--grid-cols)); }
+.col-span-8  { grid-column: span min(8,  var(--grid-cols)); }
+.col-span-9  { grid-column: span min(9,  var(--grid-cols)); }
+.col-span-10 { grid-column: span min(10, var(--grid-cols)); }
+.col-span-11 { grid-column: span min(11, var(--grid-cols)); }
+.col-span-12 { grid-column: span min(12, var(--grid-cols)); }
+
+
+/* =============================================================
+   4. PAGE LAYOUT CONVERSIONS
+   Each block here retargets an existing layout class to use
+   the 12-col system.  If you want a page off the grid, just
+   remove its block.
+   ============================================================= */
+
+/* ---- STORE (store.html) -------------------------------- */
+.store-main > .container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 24px;
+}
+.store-main .store-layout {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: var(--grid-gutter);
+    align-items: start;
+}
+.store-main .store-sidebar {
+    grid-column: span var(--sidebar-span);
+}
+.store-main .store-products {
+    grid-column: span var(--content-span);
+    min-width: 0;
+}
+.store-main .products-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--products-per-row), 1fr);
+    gap: var(--grid-gutter);
+}
+
+/* ---- EVENTS (events.html) ------------------------------ */
+/* Events grid keeps its original flexible auto-fill layout
+   (cards are content-heavy and need a min-width of 320px to
+   look right — strict 3-per-row broke the cards in a narrow
+   container).  Grid utilities are still available via .grid-12
+   and .col-span-* if you want to opt in section-by-section.     */
+
+/* ---- PRODUCT DETAIL (product-padel.html) --------------- */
+/* Gallery 7 cols, info 5 cols on desktop.  Outer container
+   stays at its default 1200px cap — only the inner layout is
+   converted so cards/sections still have room to breathe.      */
+.pd-layout {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: var(--grid-gutter);
+    align-items: start;
+}
+.pd-layout > :first-child { grid-column: span min(7, var(--grid-cols)); }
+.pd-layout > :nth-child(2) { grid-column: span min(5, var(--grid-cols)); }
+@media (max-width: 768px) {
+    .pd-layout > :first-child,
+    .pd-layout > :nth-child(2) { grid-column: 1 / -1; }
+}
+
+/* ---- CART (cart.html) ---------------------------------- */
+/* Items 8 cols, summary 4 cols.  Summary drops below on phone. */
+.cart-layout {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: var(--grid-gutter);
+    align-items: start;
+}
+.cart-layout > :first-child { grid-column: span min(8, var(--grid-cols)); min-width: 0; }
+.cart-layout > :nth-child(2) { grid-column: span min(4, var(--grid-cols)); }
+@media (max-width: 768px) {
+    .cart-layout > :first-child,
+    .cart-layout > :nth-child(2) { grid-column: 1 / -1; }
+}
+
+/* ---- CHECKOUT (checkout.html) -------------------------- */
+.checkout-layout {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: var(--grid-gutter);
+    align-items: start;
+}
+.checkout-layout > :first-child { grid-column: span min(8, var(--grid-cols)); min-width: 0; }
+.checkout-layout > :nth-child(2) { grid-column: span min(4, var(--grid-cols)); }
+@media (max-width: 768px) {
+    .checkout-layout > :first-child,
+    .checkout-layout > :nth-child(2) { grid-column: 1 / -1; }
+}
+
+/* ---- PROFILE STATS (profile.html) ---------------------- */
+/* 4 stat cards → each spans 3 cols of 12 (so stays 4-up on desktop).
+   On tablet 8 cols → 2-up (each span 4).  Phone 4 cols → 2-up (each span 2). */
+.profile-dashboard .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    gap: var(--grid-gutter);
+}
+.profile-dashboard .stats-grid > * {
+    grid-column: span min(3, var(--grid-cols));
+}
+@media (max-width: 1024px) {
+    .profile-dashboard .stats-grid > * { grid-column: span 4; } /* 2-up of 8 */
+}
+@media (max-width: 768px) {
+    .profile-dashboard .stats-grid > * { grid-column: span 2; } /* 2-up of 4 */
+}
+
+
+/* =============================================================
+   5. VISUAL DEBUG OVERLAY
+   Toggle with Ctrl+G (or Cmd+G), or: toggleGrid() in console.
+   ============================================================= */
+
+/* Apply overlay to every main container on any page. */
+body.grid-debug .container {
+    position: relative;
+}
+
+body.grid-debug .container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 9999;
+
+    /* One magenta stripe per column.  Each stripe is one column
+       wide, followed by a gutter-sized transparent gap. */
+    background-image: repeating-linear-gradient(
+        to right,
+        rgba(236, 72, 153, 0.12) 0,
+        rgba(236, 72, 153, 0.12)
+            calc((100% - (var(--grid-cols) - 1) * var(--grid-gutter)) / var(--grid-cols)),
+        transparent
+            calc((100% - (var(--grid-cols) - 1) * var(--grid-gutter)) / var(--grid-cols)),
+        transparent
+            calc((100% - (var(--grid-cols) - 1) * var(--grid-gutter)) / var(--grid-cols) + var(--grid-gutter))
+    );
+    background-size: calc(
+        ((100% - (var(--grid-cols) - 1) * var(--grid-gutter)) / var(--grid-cols)) + var(--grid-gutter)
+    ) 100%;
+}
+
+/* Live-value chip (populated by grid-debug.js) */
+body.grid-debug #grid-debug-chip {
+    position: fixed;
+    top: 12px;
+    right: 12px;
+    z-index: 10000;
+    padding: 8px 14px;
+    background: #EC4899;
+    color: white;
+    font: 700 11px/1.4 var(--font-main, system-ui);
+    border-radius: 999px;
+    box-shadow: 0 4px 12px rgba(236, 72, 153, 0.4);
+    pointer-events: none;
+    letter-spacing: 0.3px;
+}

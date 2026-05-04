@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasilitas - Comum</title>
+    <meta name="description"
+        content="Dua lokasi Comum di Jakarta — Alam Sutera & Panglima Polim. Bicycle repair, padel simulator, shop, dan café. Temukan hub terdekat kamu.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css?v=30">
+    <link rel="stylesheet" href="facilities.css?v=7">
+    <link rel="stylesheet" href="grid-config.css">
+    <link rel="stylesheet" href="grid-config.css">
+</head>
+
+<body class="facilities-body">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">comum.</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Event</a>
+                <div class="nav-dropdown" id="store-nav-dropdown">
+                    <a href="store.html" class="nav-dropdown-trigger">
+                        Store <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu nav-dropdown-menu--wide"
+                        style="grid-template-columns:repeat(3,1fr); min-width:520px">
+                        <a href="store.html" class="nav-dd-all" style="grid-column:1/-1">
+                            Semua Produk <i data-lucide="arrow-right"></i>
+                        </a>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Sepeda</span>
+                            <a href="store.html?cat=cycling&sub=jersey" class="nav-dd-item">Jersey</a>
+                            <a href="store.html?cat=helmet" class="nav-dd-item">Helm Sepeda</a>
+                            <a href="store.html?cat=cycling&sub=shoes" class="nav-dd-item">Sepatu Road</a>
+                            <a href="store.html?cat=cycling&sub=computer" class="nav-dd-item">Cycling Computer</a>
+                            <a href="store.html?cat=parts&sub=wheelset" class="nav-dd-item">Wheelset</a>
+                            <a href="store.html?cat=parts&sub=frame" class="nav-dd-item">Frame</a>
+                            <a href="store.html?cat=parts&sub=drivetrain" class="nav-dd-item">Drivetrain</a>
+                            <a href="store.html?cat=parts&sub=steering" class="nav-dd-item">Steering</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Padel</span>
+                            <a href="store.html?cat=padel&sub=racket" class="nav-dd-item">Raket Padel</a>
+                            <a href="store.html?cat=padel&sub=ball" class="nav-dd-item">Padel Ball</a>
+                            <a href="store.html?cat=padel&sub=bag" class="nav-dd-item">Padel Bag</a>
+                        </div>
+                        <div class="nav-dd-col">
+                            <span class="nav-dd-heading">Lainnya</span>
+                            <a href="store.html?cat=suplemen" class="nav-dd-item">Suplemen</a>
+                            <div class="nav-dd-divider"></div>
+                            <a href="store.html?cat=promo" class="nav-dd-item nav-dd-item--red">Promo &amp; Sale</a>
+                            <a href="store.html?cat=new" class="nav-dd-item nav-dd-item--green">Baru / New</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-dropdown" id="facilities-nav-dropdown">
+                    <a href="facilities.html" class="nav-dropdown-trigger active">
+                        Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown-menu"
+                        style="padding: 12px 16px; display: flex; flex-direction: column; gap: 6px;">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="facilities.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+            </div>
+            <a href="login.html" class="btn btn-primary nav-cta">
+                <i data-lucide="user"></i> Join Us!
+            </a>
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer -->
+    <div class="mobile-drawer" id="mobile-drawer">
+        <div class="drawer-header">
+            <a href="#" class="logo">comum.</a>
+            <button class="drawer-close" aria-label="Close menu">
+                <i data-lucide="x"></i>
+            </button>
+        </div>
+        <div class="drawer-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Event</a>
+            <div class="nav-dropdown" id="drawer-store-dropdown">
+                <a href="store.html" class="nav-dropdown-trigger">
+                    Store <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                </a>
+                <div class="nav-dropdown-menu nav-dropdown-menu--wide">
+                    <a href="store.html" class="nav-dd-all">
+                        Semua Produk <i data-lucide="arrow-right"></i>
+                    </a>
+                    <div class="nav-dd-col">
+                        <span class="nav-dd-heading">Sepeda</span>
+                        <a href="store.html?cat=cycling&sub=jersey" class="nav-dd-item">Jersey</a>
+                        <a href="store.html?cat=helmet" class="nav-dd-item">Helm Sepeda</a>
+                        <a href="store.html?cat=cycling&sub=shoes" class="nav-dd-item">Sepatu Road</a>
+                    </div>
+                    <div class="nav-dd-col">
+                        <span class="nav-dd-heading">Padel</span>
+                        <a href="store.html?cat=padel&sub=racket" class="nav-dd-item">Raket Padel</a>
+                        <a href="store.html?cat=padel&sub=ball" class="nav-dd-item">Padel Ball</a>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-dropdown" id="drawer-facilities-dropdown">
+                <a href="facilities.html" class="nav-dropdown-trigger">
+                    Fasilitas <i data-lucide="chevron-down" class="nav-dropdown-chevron"></i>
+                </a>
+                <div class="nav-dropdown-menu">
+                    <div class="nav-dd-col">
+                        <a href="facilities.html" class="nav-dd-item">Locations</a>
+                        <a href="facilities.html" class="nav-dd-item">Bicycle Service</a>
+                        <a href="facilities.html" class="nav-dd-item">Padel Simulator</a>
+                        <a href="facilities.html" class="nav-dd-item">Cafe</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="login.html" class="btn btn-primary drawer-cta">Join Us!</a>
+    </div>
+
+    <!-- ========== HERO ========== -->
+    <section class="fac-hero">
+        <div class="fac-hero-bg">
+            <img src="./Asset/WebP/interior_comum_pangpol.webp" alt="Comum community" class="fac-hero-image">
+            <div class="fac-hero-overlay"></div>
+        </div>
+        <div class="fac-hero-content">
+            <span class="fac-hero-badge">2 lokasi</span>
+            <h1>More than just<br><span class="hero-accent">a communal space</span></h1>
+            <p>Tempat ngumpul, servis sepeda, latihan padel, dan ngopi bareng komunitas. Semua di satu tempat.</p>
+            <div class="fac-hero-actions">
+                <a href="#loc-Alam Sutera" class="btn btn-ghost-white btn-lg">Alam Sutera</a>
+                <a href="#loc-panglima-polim" class="btn btn-ghost-white btn-lg">Panglima Polim</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SERVICES OVERVIEW ========== -->
+    <section class="fac-services">
+        <div class="container">
+            <div class="section-header text-center" data-reveal>
+                <span class="section-label">Apa aja yang ada?</span>
+                <h2>Semua kebutuhan kamu, satu atap.</h2>
+            </div>
+            <div class="fac-services-bento" data-reveal>
+                <!-- 1. Padel Simulator (moved up to 1st slot in DOM) -->
+                <div class="fac-service-card fac-service-card--wide-feature">
+                    <div class="fac-service-wide-top">
+                        <div class="fac-service-wide-body">
+                            <span class="fac-service-eyebrow">Simulator</span>
+                            <h3>Padel Simulator</h3>
+                            <p>Latihan padel dengan teknologi simulator. Cocok untuk pemula atau asah skill.</p>
+                        </div>
+                        <div class="fac-bento-img-wrap fac-bento-img-wrap--side">
+                            <img src="./Asset/WebP_Fasilitas_3D/padelsim_result.webp" alt="Padel Simulator 3D Render"
+                                class="fac-bento-img">
+                        </div>
+                    </div>
+                    <div class="fac-service-feature-foot">
+                        <span class="fac-service-availability">Alam Sutera</span>
+                        <a href="padel-simulator.html" class="fac-service-cta">Book Sekarang <i data-lucide="arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- 2. Feature card: Bicycle Repair (tall) -->
+                <div class="fac-service-card fac-service-card--feature">
+                    <div class="fac-service-feature-body">
+                        <span class="fac-service-eyebrow">Workshop</span>
+                        <h3>Bicycle Repair</h3>
+                        <p>Service lengkap dari tune-up sampai overhaul. Dikerjakan mekanik berpengalaman dengan tools
+                            profesional.</p>
+                    </div>
+                    <div class="fac-bento-img-wrap fac-bento-img-wrap--main">
+                        <img src="./Asset/WebP_Fasilitas_3D/service_result.webp" alt="Bicycle Repair 3D Render"
+                            class="fac-bento-img">
+                    </div>
+                    <div class="fac-service-feature-foot">
+                        <span class="fac-service-availability">Kedua lokasi</span>
+                        <span class="fac-service-cta">Lihat Servis <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- 3. Coffee feature -->
+                <div class="fac-service-card fac-service-card--coffee">
+                    <span class="fac-service-eyebrow">Coffee Bar</span>
+                    <h3>Coffee &amp; Hangout</h3>
+                    <p>Ngopi santai setelah ride atau main padel. Tempat nongkrong favorit komunitas.</p>
+                    <div class="fac-bento-img-wrap">
+                        <img src="./Asset/WebP_Fasilitas_3D/cafe_result.webp" alt="Coffee Bar 3D Render"
+                            class="fac-bento-img">
+                    </div>
+                    <div class="fac-service-feature-foot">
+                        <span class="fac-service-availability">Panglima Polim</span>
+                        <span class="fac-service-cta">Lihat Menu <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </div>
+
+                <!-- 4. Padel & Bike Shop -->
+                <div class="fac-service-card fac-service-card--retail">
+                    <span class="fac-service-eyebrow">Offline Store</span>
+                    <h3>Padel &amp; Bike Shop</h3>
+                    <p>Ingin melihat barangnya dan mencobanya secara langsung? kunjungi offline store kami.</p>
+                    <div class="fac-bento-img-wrap">
+                        <img src="./Asset/WebP_Fasilitas_3D/shop_result.webp" alt="Padel & Bike Shop 3D Render"
+                            class="fac-bento-img">
+                    </div>
+                    <div class="fac-service-feature-foot">
+                        <span class="fac-service-availability">Kedua lokasi</span>
+                        <span class="fac-service-cta">Lihat Lokasi <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== LOCATION 1: Alam Sutera (BIKE & PADEL) ========== -->
+    <section class="fac-location" id="loc-Alam Sutera">
+        <div class="container">
+            <div class="fac-location-header" data-reveal>
+                <span class="section-label">Lokasi 01 · Bike &amp; Padel</span>
+                <h2>Comum Alam Sutera</h2>
+            </div>
+
+            <div class="fac-location-card" data-reveal>
+                <div class="fac-location-gallery" data-location="alsut">
+                    <div class="fac-gallery-item fac-gallery-item--main" data-photo-index="0">
+                        <img src="./Asset/Alsut/ALSUT_FRONT_result.webp" alt="Comum Alam Sutera Front">
+                    </div>
+                    <div class="fac-gallery-item" data-photo-index="1">
+                        <img src="./Asset/Alsut/Alsut_Lt_1_result.webp" alt="Comum Alam Sutera Interior">
+                    </div>
+                    <div class="fac-gallery-item" data-photo-index="2">
+                        <img src="./Asset/Alsut/Alsut_Lantai_2_result.webp" alt="Comum Alam Sutera Area">
+                    </div>
+                    <div class="fac-gallery-more">
+                        <i data-lucide="plus"></i>
+                        <span>Lihat Semua Foto</span>
+                    </div>
+                </div>
+                <div class="fac-location-info">
+                    <div class="fac-location-meta">
+                        <div class="fac-meta-item">
+                            <i data-lucide="map-pin"></i>
+                            <span>Ruko Palmyra Square Unit 25A No. 6, Kunciran, Alam Sutera, Tangerang 15325</span>
+                        </div>
+                        <div class="fac-meta-item">
+                            <i data-lucide="clock"></i>
+                            <span>Senin sampai Minggu, 07:00 sampai 21:00</span>
+                        </div>
+                        <div class="fac-meta-item">
+                            <i data-lucide="phone"></i>
+                            <span>+62 812-xxxx-xxxx</span>
+                        </div>
+                    </div>
+                    <div class="fac-features">
+                        <span class="fac-feature-tag">Bicycle Repair</span>
+                        <span class="fac-feature-tag">Padel Simulator</span>
+                        <span class="fac-feature-tag">Bike &amp; Padel Shop</span>
+                    </div>
+                    <a href="https://maps.google.com/?q=Comum+Bike+Padel+Palmyra+Square+Alam Sutera" target="_blank"
+                        class="btn btn-primary">Get Directions</a>
+                </div>
+            </div>
+
+            <!-- Bike Service Price List (shared between locations) -->
+            <div class="fac-price-section" data-reveal>
+                <div class="fac-price-header">
+                    <h3>Bike Service Price List</h3>
+                    <p>Tersedia di kedua lokasi.</p>
+                </div>
+
+                <div class="fac-price-bento">
+                    <div class="fac-price-group fac-price-group--full">
+                        <h4 class="fac-price-group-title">Service Package</h4>
+                        <div class="fac-price-table-wrap">
+                            <table class="fac-price-table">
+                                <tbody>
+                                    <tr>
+                                        <td class="service-name">Full Overhaul
+                                            Package</td>
+                                        <td>General check, degrease &amp; greasing, brake bleeding, washing, torque
+                                            check,
+                                            FD/RD calibration, tire pressure</td>
+                                        <td class="price-cell"><span class="price-full">IDR 350.000</span><span
+                                                class="price-short">IDR 350K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Medium Service
+                                            Package</td>
+                                        <td>General check, torque check, standard cleaning, FD/RD calibration, tire
+                                            pressure, bike wash</td>
+                                        <td class="price-cell"><span class="price-full">IDR 250.000</span><span
+                                                class="price-short">IDR 250K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Basic Service
+                                            Package</td>
+                                        <td>Cek shifting RD/FD, cek brake, lubrikasi rantai</td>
+                                        <td class="price-cell"><span class="price-full">IDR 150.000</span><span
+                                                class="price-short">IDR 150K</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="fac-price-group">
+                        <h4 class="fac-price-group-title">Master Build</h4>
+                        <div class="fac-price-table-wrap">
+                            <table class="fac-price-table fac-price-table--simple">
+                                <tbody>
+                                    <tr>
+                                        <td class="service-name">Disc Brake Groupset Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 500.000</span><span
+                                                class="price-short">IDR 500K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Rim Brake Groupset Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 450.000</span><span
+                                                class="price-short">IDR 450K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Groupset Disassembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 150.000</span><span
+                                                class="price-short">IDR 150K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Groupset Exchange 1.2 Package</td>
+                                        <td class="price-cell"><span class="price-full">IDR 750.000</span><span
+                                                class="price-short">IDR 750K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Groupset Exchange 2.2 Package</td>
+                                        <td class="price-cell"><span class="price-full">IDR 900.000</span><span
+                                                class="price-short">IDR 900K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Bike Packing for Travel</td>
+                                        <td class="price-cell"><span class="price-full">IDR 150.000</span><span
+                                                class="price-short">IDR 150K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Bike Assembly from Bike Box</td>
+                                        <td class="price-cell"><span class="price-full">IDR 200.000</span><span
+                                                class="price-short">IDR 200K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Additional Box for Packing</td>
+                                        <td class="price-cell"><span class="price-full">IDR 50.000</span><span
+                                                class="price-short">IDR 50K</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="fac-price-group">
+                        <h4 class="fac-price-group-title">Components</h4>
+                        <div class="fac-price-table-wrap">
+                            <table class="fac-price-table fac-price-table--simple">
+                                <tbody>
+                                    <tr>
+                                        <td class="service-name">Wheelset Build (1 Wheel)</td>
+                                        <td class="price-cell"><span class="price-full">IDR 150.000</span><span
+                                                class="price-short">IDR 150K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Integrated Dropbar Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 150.000</span><span
+                                                class="price-short">IDR 150K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Dropbar / Stem / Seatpost Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 100.000</span><span
+                                                class="price-short">IDR 100K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Spoke Exchange / Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 100.000</span><span
+                                                class="price-short">IDR 100K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Carbon / Alloy Fork Cutting</td>
+                                        <td class="price-cell"><span class="price-full">IDR 100.000</span><span
+                                                class="price-short">IDR 100K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Headset Bearing Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 100.000</span><span
+                                                class="price-short">IDR 100K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Wheelset Bearing Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 75.000</span><span
+                                                class="price-short">IDR 75K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Tubular Tire Assembly (excl. Tape)</td>
+                                        <td class="price-cell"><span class="price-full">IDR 75.000</span><span
+                                                class="price-short">IDR 75K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Tubeless Tire Assembly (excl. Sealant)</td>
+                                        <td class="price-cell"><span class="price-full">IDR 75.000</span><span
+                                                class="price-short">IDR 75K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Wheelset Setting &amp; Truing (1 Wheel)</td>
+                                        <td class="price-cell"><span class="price-full">IDR 75.000</span><span
+                                                class="price-short">IDR 75K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Clincher Tire Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 50.000</span><span
+                                                class="price-short">IDR 50K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Carbon / Alloy Seatpost Cutting</td>
+                                        <td class="price-cell"><span class="price-full">IDR 50.000</span><span
+                                                class="price-short">IDR 50K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">BarTape Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 50.000</span><span
+                                                class="price-short">IDR 50K</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="fac-price-group fac-price-group--full">
+                        <h4 class="fac-price-group-title">Drivetrain</h4>
+                        <div class="fac-price-table-wrap">
+                            <table class="fac-price-table fac-price-table--simple">
+                                <tbody>
+                                    <tr>
+                                        <td class="service-name">FD / RD Assembly + Setting</td>
+                                        <td class="price-cell"><span class="price-full">IDR 100.000</span><span
+                                                class="price-short">IDR 100K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Bottom Bracket Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 100.000</span><span
+                                                class="price-short">IDR 100K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Crankset / Chainring Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 100.000</span><span
+                                                class="price-short">IDR 100K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">OSPW Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 100.000</span><span
+                                                class="price-short">IDR 100K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Brakeset Bleeding (1 Brake)</td>
+                                        <td class="price-cell"><span class="price-full">IDR 75.000</span><span
+                                                class="price-short">IDR 75K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Hydraulic Cable Assembly / Exchange</td>
+                                        <td class="price-cell"><span class="price-full">IDR 75.000</span><span
+                                                class="price-short">IDR 75K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Hood Shifter Exchange</td>
+                                        <td class="price-cell"><span class="price-full">IDR 75.000</span><span
+                                                class="price-short">IDR 75K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Mechanical Rim Brake Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 50.000</span><span
+                                                class="price-short">IDR 50K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Cassette Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 50.000</span><span
+                                                class="price-short">IDR 50K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Chain Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 50.000</span><span
+                                                class="price-short">IDR 50K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">FD / RD Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 50.000</span><span
+                                                class="price-short">IDR 50K</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="service-name">Sprocket Assembly</td>
+                                        <td class="price-cell"><span class="price-full">IDR 50.000</span><span
+                                                class="price-short">IDR 50K</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="fac-price-note">Harga belum termasuk spare parts. Konsultasi gratis untuk member komunitas.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== LOCATION 2: PANGLIMA POLIM (BIKE & COFFEE) ========== -->
+    <section class="fac-location fac-location--alt" id="loc-panglima-polim">
+        <div class="container">
+            <div class="fac-location-header" data-reveal>
+                <span class="section-label">Lokasi 02 · Bike &amp; Coffee</span>
+                <h2>Comum Panglima Polim</h2>
+            </div>
+
+            <div class="fac-location-card fac-location-card--reversed" data-reveal>
+                <div class="fac-location-gallery" data-location="pangpol">
+                    <div class="fac-gallery-item fac-gallery-item--main" data-photo-index="0">
+                        <img src="./Asset/Pangpol/pangpoll_front_result.webp" alt="Comum Panglima Polim Front">
+                    </div>
+                    <div class="fac-gallery-item" data-photo-index="1">
+                        <img src="./Asset/Pangpol/pangpol_bengkel_result.webp" alt="Comum Panglima Polim Workshop">
+                    </div>
+                    <div class="fac-gallery-item" data-photo-index="2">
+                        <img src="./Asset/Pangpol/pangpol_cafe_result.webp" alt="Comum Panglima Polim Cafe">
+                    </div>
+                    <div class="fac-gallery-more">
+                        <i data-lucide="plus"></i>
+                        <span>Lihat Semua Foto</span>
+                    </div>
+                </div>
+                <div class="fac-location-info">
+                    <div class="fac-location-meta">
+                        <div class="fac-meta-item">
+                            <i data-lucide="map-pin"></i>
+                            <span>Jl. Panglima Polim IX No. 4, Melawi, Kebayoran Baru, Jakarta Selatan 12160</span>
+                        </div>
+                        <div class="fac-meta-item">
+                            <i data-lucide="clock"></i>
+                            <span>Senin sampai Minggu, 07:00 sampai 22:00</span>
+                        </div>
+                        <div class="fac-meta-item">
+                            <i data-lucide="phone"></i>
+                            <span>+62 812-xxxx-xxxx</span>
+                        </div>
+                    </div>
+                    <div class="fac-features">
+                        <span class="fac-feature-tag">Bicycle Repair</span>
+                        <span class="fac-feature-tag">Bike Shop</span>
+                        <span class="fac-feature-tag fac-feature-tag--cafe">Coffee Bar</span>
+                    </div>
+                    <a href="https://maps.google.com/?q=Comum+Bike+Coffee+Panglima+Polim+IX" target="_blank"
+                        class="btn btn-primary">Get Directions</a>
+                </div>
+            </div>
+
+            <!-- Coffee Section -->
+            <div class="fac-cafe-section" data-reveal>
+                <div class="fac-cafe-banner">
+                    <div class="fac-cafe-banner-copy">
+                        <h3 class="fac-cafe-banner-headline">Cafe</h3>
+                        <p>Post ride latte, Sunday hangs, atau quick americano sebelum gowes. Ruang yang dibuat untuk komunitas.</p>
+                        <span class="fac-cafe-location-note">hanya ada di panglima polim</span>
+                    </div>
+                    <div class="fac-cafe-banner-tiles">
+                        <div class="fac-cafe-banner-tile fac-cafe-banner-tile--wide">
+                            <img src="./Asset/Cafe_WebP/latteArt.a15b261ba9c3de9b340a.webp" alt="Latte art">
+                        </div>
+                        <div class="fac-cafe-banner-tile fac-cafe-banner-tile--standard">
+                            <img src="./Asset/Cafe_WebP/threeDrinks.35b038c345f06387f36f.webp" alt="Signature drinks">
+                        </div>
+                        <div class="fac-cafe-banner-tile fac-cafe-banner-tile--standard">
+                            <img src="./Asset/Cafe_WebP/pisangGoreng.b41dcb45fd6df2570275.webp" alt="Pisang goreng">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="fac-price-header fac-price-header--menu">
+                    <h3>Coffee Menu</h3>
+                    <p>Tempat nongkrong favorit komunitas.</p>
+                </div>
+
+                <div class="fac-cafe-grid">
+                    <!-- Signature Menu -->
+                    <div class="fac-menu-category fac-menu-category--feature">
+                        <h4 class="fac-menu-cat-title">Signature Menu</h4>
+                        <ul class="fac-menu-list">
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Nectar Coffee</span>
+                                    <span class="fac-menu-item-desc">Rich espresso, creamy milk, delicate nectar
+                                        sweetness.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>29K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Watermelon Fizz</span>
+                                    <span class="fac-menu-item-desc">Ripe watermelon, bubbly soda, hint of espresso.
+                                        Served over ice.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>29K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Honey Yuzu Mint Tea</span>
+                                    <span class="fac-menu-item-desc">Manuka honey, zesty yuzu, invigorating mint.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>29K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Avellanas Xocco</span>
+                                    <span class="fac-menu-item-desc">Creamy hazelnut blended with rich chocolate
+                                        notes.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>29K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Daily Coffee Black -->
+                    <div class="fac-menu-category">
+                        <h4 class="fac-menu-cat-title">Daily Coffee · Black</h4>
+                        <ul class="fac-menu-list">
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Espresso</span>
+                                    <span class="fac-menu-item-desc">Bold shot, immense flavor.</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>20K</span><small>Hot</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Americano</span>
+                                    <span class="fac-menu-item-desc">Smooth, bold brew.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>25K</span><small>Hot</small><span>27K</span><small>Cold</small></span>
+                            </li>
+                        </ul>
+
+                        <!-- Merged Tea & Ice Drink -->
+                        <h4 class="fac-menu-cat-title" style="margin-top: var(--space-xl)">Tea &amp; Ice Drink</h4>
+                        <ul class="fac-menu-list">
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Chamomile Tea</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>25K</span><small>Hot</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Chai Tea</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>25K</span><small>Hot</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Ice Lemon Tea</span>
+                                    <span class="fac-menu-item-desc">Zesty lemon, brewed tea.</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>30K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Ice Lychee Tea</span>
+                                    <span class="fac-menu-item-desc">Lychee, tea, hint of sweetness.</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>30K</span><small>Cold</small></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Daily Coffee White -->
+                    <div class="fac-menu-category">
+                        <h4 class="fac-menu-cat-title">Daily Coffee · White</h4>
+                        <ul class="fac-menu-list">
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Piccolo</span>
+                                    <span class="fac-menu-item-desc">Bold flavor, smooth perfection.</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>27K</span><small>Hot</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Cappuccino / Latte / Flat White</span>
+                                    <span class="fac-menu-item-desc">Rich espresso, velvety steamed milk.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>29K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Caramel Latte</span>
+                                    <span class="fac-menu-item-desc">Creamy espresso, sweet caramel bliss.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>30K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Hazelnut Latte</span>
+                                    <span class="fac-menu-item-desc">Espresso with roasted hazelnut notes.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>30K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Aren Latte</span>
+                                    <span class="fac-menu-item-desc">Sweet palm sugar latte, natural energy
+                                        boost.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>30K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Pandan Latte</span>
+                                    <span class="fac-menu-item-desc">Pandan and coffee, perfect blend.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>30K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Non-Coffee -->
+                    <div class="fac-menu-category">
+                        <h4 class="fac-menu-cat-title">Non-Coffee</h4>
+                        <ul class="fac-menu-list">
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Bitter Nuts</span>
+                                    <span class="fac-menu-item-desc">Unleash the bold in every cup.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>30K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Matcha Me!</span>
+                                    <span class="fac-menu-item-desc">Vibrant matcha flavor.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>30K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">OG Chai Latte</span>
+                                    <span class="fac-menu-item-desc">Robust chai, aromatic cinnamon, creamy milk.</span>
+                                </div>
+                                <span
+                                    class="fac-menu-item-price"><span>30K</span><small>Hot</small><span>33K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Dragon Fruit Smoothies</span>
+                                    <span class="fac-menu-item-desc">Refreshing dragon fruit smoothie.</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>38K</span><small>Cold</small></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Mix Berries Smoothies</span>
+                                    <span class="fac-menu-item-desc">Smooth, fruit forward, easy sip.</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>38K</span><small>Cold</small></span>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!-- Snacks & Toast -->
+                    <div class="fac-menu-category">
+                        <h4 class="fac-menu-cat-title">Snacks &amp; Toast</h4>
+                        <ul class="fac-menu-list">
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">French Fries</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>18K</span></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Pisang Goreng</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>18K</span></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Comum Cookies</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>15K</span></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Comum Toast Chocolate</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>20K</span></span>
+                            </li>
+                            <li class="fac-menu-item">
+                                <div class="fac-menu-item-info">
+                                    <span class="fac-menu-item-name">Comum Toast Cheese</span>
+                                </div>
+                                <span class="fac-menu-item-price"><span>20K</span></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="fac-price-note">Harga belum termasuk pajak. Menu dapat berubah sewaktu-waktu.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CTA: editorial numbered list ========== -->
+    <section class="fac-cta">
+        <div class="container">
+            <div class="fac-cta-block" data-reveal>
+                <span class="fac-cta-question-tag">Sampai jumpa</span>
+                <h2 class="fac-cta-question">Ke mana<br>hari ini?</h2>
+            </div>
+            <div class="fac-cta-list" data-reveal>
+                <a href="https://maps.google.com/?q=Comum+Bike+Padel+Palmyra+Square+Alam Sutera" target="_blank"
+                    class="fac-cta-row">
+                    <span class="fac-cta-num">01</span>
+                    <div class="fac-cta-row-info">
+                        <h3>Comum Bike &amp; Padel</h3>
+                        <p>Ruko Palmyra Square, Alam Sutera, Tangerang</p>
+                    </div>
+                    <span class="fac-cta-row-link">Buka Maps <i data-lucide="arrow-up-right"></i></span>
+                </a>
+                <a href="https://maps.google.com/?q=Comum+Bike+Coffee+Panglima+Polim+IX" target="_blank"
+                    class="fac-cta-row">
+                    <span class="fac-cta-num">02</span>
+                    <div class="fac-cta-row-info">
+                        <h3>Comum Bike &amp; Coffee</h3>
+                        <p>Jl. Panglima Polim IX, Kebayoran Baru, Jakarta Selatan</p>
+                    </div>
+                    <span class="fac-cta-row-link">Buka Maps <i data-lucide="arrow-up-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="home-footer">
+        <div class="container">
+            <div class="home-footer-grid">
+                <div class="footer-col-brand">
+                    <h2 class="home-footer-logo">comum.</h2>
+                    <h3 class="newsletter-heading">Stay Ahead, Never Miss a Great Deal Again!</h3>
+                    <p>Get ready to discover all the latest trends, collaborations, and exclusive promotions!</p>
+                    <form class="newsletter-form" onsubmit="event.preventDefault();">
+                        <input type="email" placeholder="Your Email" aria-label="Your email address" required>
+                        <button type="submit">Join Newsletter</button>
+                    </form>
+                </div>
+
+                <div class="footer-col-contact">
+                    <h4>Contact</h4>
+                    <p class="contact-block">
+                        <strong>Comum Panglima Polim</strong><br>
+                        Jl. Panglima Polim 8 No. 4 RT.001 RW.007 Melawai — Kebayoran Baru<br>
+                        Jakarta Selatan, DKI Jakarta — 12160
+                    </p>
+                    <p class="contact-block">
+                        <strong>Comum Alam Sutera</strong><br>
+                        Ruko Putra Square Lot 25A No. 4 RT.002 RW.014 Kunciran — Alam Sutera Kota<br>
+                        Tangerang, Banten — 15325<br>
+                        info@comumspace.com
+                    </p>
+                </div>
+
+                <div class="footer-col-social">
+                    <h4>Follow Us!</h4>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-instagram">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                        </svg> @comumbike</a>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="lucide lucide-instagram">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+                        </svg> @comumpadel</a>
+                </div>
+            </div>
+
+            <div class="home-footer-bottom">
+                <p>&copy; 2026 Comum Bike and Padel</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js?v=48"></script>
+    <script src="facilities.js?v=3"></script>
+    <script src="grid-debug.js"></script>
+
+    <!-- Photo Lightbox Modal -->
+    <div class="fac-lightbox" id="fac-lightbox">
+        <button class="lightbox-close" aria-label="Close gallery">
+            <i data-lucide="x"></i>
+        </button>
+        
+        <div class="lightbox-content">
+            <div class="lightbox-main">
+                <button class="lightbox-nav lightbox-nav--prev" aria-label="Previous photo">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <div class="lightbox-image-container">
+                    <img id="lightbox-img" src="" alt="Gallery Image">
+                </div>
+                <button class="lightbox-nav lightbox-nav--next" aria-label="Next photo">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+            </div>
+            
+            <div class="lightbox-thumbs-container">
+                <div class="lightbox-thumbs" id="lightbox-thumbs">
+                    <!-- Thumbnails will be injected by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

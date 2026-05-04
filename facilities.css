@@ -1,0 +1,1968 @@
+/* =========================================
+   Facilities Page Styles
+   ========================================= */
+
+/* ---- Body ---- */
+.facilities-body {
+    background: var(--bg-light);
+    overflow-x: hidden;   /* prevent any child overflow from causing horizontal scroll */
+}
+
+/* ========== HERO ========== */
+.fac-hero {
+    position: relative;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.fac-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.fac-hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+}
+
+.fac-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            rgba(15, 23, 42, 0.55) 0%,
+            rgba(15, 23, 42, 0.75) 100%);
+}
+
+.fac-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 680px;
+    padding: var(--space-4xl) var(--space-lg);
+    color: white;
+}
+
+.fac-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: var(--space-sm) var(--space-md);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    margin-bottom: var(--space-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.fac-hero-badge svg {
+    width: 16px;
+    height: 16px;
+}
+
+.fac-hero-content h1 {
+    font-size: var(--text-5xl);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-md);
+}
+
+.hero-accent {
+    color: var(--primary-blue);
+}
+
+.fac-hero-content p {
+    font-size: var(--text-lg);
+    opacity: 0.85;
+    margin-bottom: var(--space-xl);
+    line-height: 1.6;
+}
+
+.fac-hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.fac-hero-actions .btn {
+    transition: transform 0.3s var(--ease-out-expo), 
+                background-color 0.3s ease, 
+                border-color 0.3s ease, 
+                box-shadow 0.3s ease;
+}
+
+.fac-hero-actions .btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.15);
+}
+
+/* ========== SERVICES OVERVIEW ========== */
+.fac-services {
+    padding: var(--section-pad) 0;
+}
+
+.fac-services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+    margin-top: var(--space-3xl);
+}
+
+.fac-service-card {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl) var(--space-lg);
+    border: 1px solid var(--border-light);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: center;
+    will-change: transform;
+    position: relative;
+    overflow: hidden;
+}
+
+.fac-service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, transparent 40%, rgba(0, 102, 255, 0.3), transparent 60%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.fac-service-card:hover::before {
+    opacity: 1;
+}
+
+.fac-service-card:hover {
+    border-color: var(--border-light);
+}
+
+.fac-service-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background: var(--primary-blue-10);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-md);
+    color: var(--primary-blue);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s ease;
+}
+
+.fac-service-card:hover .fac-service-icon {
+    transform: scale(1.15) rotate(-5deg);
+    background: var(--primary-blue);
+    color: white;
+}
+
+.fac-service-card:hover .fac-service-icon--simulator {
+    background: var(--primary-blue);
+    color: white;
+}
+
+.fac-service-card:hover .fac-service-icon--shop {
+    background: #16a34a;
+    color: white;
+}
+
+.fac-service-card:hover .fac-service-icon--cafe {
+    background: #d97706;
+    color: white;
+}
+
+.fac-service-icon svg {
+    width: 24px;
+    height: 24px;
+    transition: color 0.3s ease;
+}
+
+.fac-service-icon--simulator {
+    background: var(--primary-blue-10);
+    color: var(--primary-blue);
+}
+
+.fac-service-icon--shop {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.fac-service-icon--cafe {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+}
+
+.fac-service-card h3 {
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--space-sm);
+}
+
+.fac-service-card p {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+}
+
+.fac-service-availability {
+    font-size: var(--text-xs);
+    font-weight: 600;
+    color: var(--text-faint);
+    letter-spacing: 0.02em;
+}
+
+/* ========== LOCATION SECTIONS ========== */
+.fac-location {
+    padding: var(--section-pad) 0 var(--space-3xl);
+}
+
+.fac-location--alt {
+    background: var(--bg-white);
+}
+
+.fac-location-header {
+    margin-bottom: var(--space-2xl);
+}
+
+.fac-location-header h2 {
+    font-size: var(--text-4xl);
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: -0.02em;
+}
+
+/* ---- Location Card ---- */
+.fac-location-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+    background: var(--bg-white);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+    box-shadow: var(--shadow-md);
+}
+
+.fac-location--alt .fac-location-card {
+    background: var(--bg-light);
+}
+
+.fac-location-card--reversed {
+    direction: rtl;
+}
+
+.fac-location-card--reversed>* {
+    direction: ltr;
+}
+
+.fac-location-info {
+    padding: var(--space-2xl);
+}
+
+/* ---- Location Gallery ---- */
+.fac-location-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 8px;
+    height: 100%;
+    background: var(--bg-light);
+    position: relative;
+    cursor: pointer;
+}
+
+.fac-gallery-item {
+    position: relative;
+    overflow: hidden;
+    background: #eee;
+    aspect-ratio: 4/3;
+}
+
+.fac-gallery-item--main {
+    grid-column: 1 / span 2;
+}
+
+.fac-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4/3;
+    transition: transform 0.6s var(--ease-out-expo);
+}
+
+.fac-location-gallery:hover .fac-gallery-item img {
+    transform: scale(1.05);
+}
+
+.fac-gallery-more {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding: 8px 16px;
+    border-radius: var(--radius-pill);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s var(--ease-out-expo);
+    z-index: 2;
+}
+
+.fac-location-gallery:hover .fac-gallery-more {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Lightbox Modal */
+.fac-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 2000;
+    background: rgba(10, 10, 15, 0.98);
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    padding: 40px 20px;
+}
+
+.fac-lightbox.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.lightbox-close:hover {
+    background: var(--primary-blue);
+    transform: rotate(90deg);
+}
+
+.lightbox-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+.lightbox-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 0;
+}
+
+.lightbox-image-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.lightbox-image-container img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    opacity: 0;
+    transform: scale(0.95);
+    transition: all 0.5s var(--ease-out-expo);
+}
+
+.fac-lightbox.active #lightbox-img {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 5;
+}
+
+.lightbox-nav:hover {
+    background: var(--primary-blue);
+    border-color: var(--primary-blue);
+}
+
+.lightbox-nav--prev { left: -80px; }
+.lightbox-nav--next { right: -80px; }
+
+@media (max-width: 1400px) {
+    .lightbox-nav--prev { left: 20px; }
+    .lightbox-nav--next { right: 20px; }
+}
+
+.lightbox-thumbs-container {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-thumbs {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+
+.lightbox-thumb {
+    width: 80px;
+    height: 60px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    flex-shrink: 0;
+}
+
+.lightbox-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lightbox-thumb:hover {
+    opacity: 0.7;
+}
+
+.lightbox-thumb.active {
+    opacity: 1;
+    border-color: var(--primary-blue);
+    transform: translateY(-4px);
+}
+
+.fac-location-meta {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+}
+
+.fac-meta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-sm);
+    font-size: var(--text-sm);
+    color: var(--text-body);
+    line-height: 1.5;
+}
+
+.fac-meta-item svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary-blue);
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+/* ---- Feature Tags ---- */
+.fac-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xl);
+}
+
+.fac-feature-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--primary-blue-10);
+    color: var(--primary-blue);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-xs);
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: default;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fac-feature-tag svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.fac-feature-tag:hover svg {
+    transform: rotate(15deg) scale(1.2);
+}
+
+.fac-feature-tag--cafe {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+}
+
+/* ========== PRICE TABLE ========== */
+.fac-price-section,
+.fac-cafe-section {
+    margin-top: var(--space-3xl);
+}
+
+.fac-price-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-xl);
+    flex-wrap: wrap;   /* stack title below icon on narrow screens */
+}
+
+.fac-price-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: var(--primary-blue-10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-blue);
+    flex-shrink: 0;
+}
+
+.fac-price-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.fac-price-icon--cafe {
+    background: rgba(245, 158, 11, 0.1);
+    color: #d97706;
+}
+
+.fac-price-header h3 {
+    font-size: var(--text-xl);
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.fac-price-header p {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+.fac-price-table-wrap {
+    overflow: visible; /* Allow hover 'pop out' without cropping */
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    background: var(--bg-white);
+}
+
+.fac-location--alt .fac-price-table-wrap {
+    background: var(--bg-light);
+}
+
+.fac-price-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--text-sm);
+}
+
+.fac-price-table thead {
+    background: var(--bg-light);
+}
+
+.fac-location--alt .fac-price-table thead {
+    background: var(--bg-white);
+}
+
+.fac-price-table th {
+    padding: var(--space-md) var(--space-lg);
+    text-align: left;
+    font-weight: 600;
+    color: var(--text-muted);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.fac-price-table th:last-child {
+    text-align: right;
+}
+
+.fac-price-table td {
+    padding: var(--space-md) var(--space-lg);
+    color: var(--text-body);
+    border-bottom: 1px solid var(--border-light);
+    line-height: 1.5;
+    text-align: left;
+    vertical-align: middle; /* Center vertically when text wraps */
+}
+
+.fac-price-table td:last-child {
+    text-align: right;
+    white-space: nowrap;
+}
+
+.fac-price-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.fac-price-table tbody tr {
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.fac-price-table tbody tr:hover {
+    background: rgba(0, 102, 255, 0.04);
+}
+
+.fac-price-table tbody tr:hover .service-name {
+    color: var(--primary-blue);
+}
+
+.price-cell {
+    transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.2s ease;
+    /* Removed inline-flex to keep table-cell behavior and aligned borders */
+    font-variant-numeric: tabular-nums;
+}
+
+.price-short {
+    display: none;
+}
+
+@media (max-width: 965px) {
+    .price-full {
+        display: none;
+    }
+    .price-short {
+        display: inline;
+    }
+}
+
+.service-name {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.service-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: var(--radius-pill);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.service-badge--basic {
+    background: rgba(34, 197, 94, 0.1);
+    color: #16a34a;
+}
+
+.service-badge--standard {
+    background: rgba(0, 102, 255, 0.1);
+    color: var(--primary-blue);
+}
+
+.service-badge--premium {
+    background: var(--primary-blue-10);
+    color: var(--primary-blue);
+}
+
+td:has(.price-cell) {
+    text-align: right;
+}
+
+.price-cell {
+    font-weight: 700;
+    color: var(--text-dark);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+}
+
+.fac-price-note {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+}
+
+.fac-price-note svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* ========== CAFÉ MENU ========== */
+.fac-cafe-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.fac-menu-category {
+    background: var(--bg-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    border: 1px solid var(--border-light);
+}
+
+.fac-menu-cat-title {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    font-size: var(--text-base);
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-md);
+    border-bottom: 2px solid var(--border-light);
+}
+
+.fac-menu-cat-title svg {
+    width: 18px;
+    height: 18px;
+    color: var(--primary-blue);
+}
+
+.fac-menu-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.fac-menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-sm) 0 var(--space-md);
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.06);
+    border-radius: var(--radius-sm);
+    transition: padding 0.3s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s ease;
+    cursor: default;
+}
+
+.fac-menu-item:hover {
+    background: rgba(0, 102, 255, 0.03);
+}
+
+.fac-menu-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.fac-menu-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.fac-menu-item-name {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: var(--text-sm);
+}
+
+.fac-menu-item-tag {
+    font-size: var(--text-xs);
+    color: var(--text-faint);
+    font-weight: 500;
+}
+
+.fac-menu-item-price {
+    font-weight: 700;
+    font-size: var(--text-sm);
+    color: var(--text-dark);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    display: inline-block;
+}
+
+/* =========================================
+   CTA: editorial numbered list (intentionally
+   different from the rest of the page)
+   ========================================= */
+.fac-cta {
+    padding: clamp(80px, 12vw, 160px) 0;
+    background: var(--bg-warm);
+    color: var(--text-dark);
+    position: relative;
+    overflow: hidden;
+}
+
+.fac-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(circle at 15% 20%, rgba(0, 102, 255, 0.04) 0, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(0, 102, 255, 0.04) 0, transparent 40%);
+    pointer-events: none;
+}
+
+.fac-cta .container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: var(--space-3xl);
+    align-items: center;
+}
+
+.fac-cta-block {
+    align-self: center;
+}
+
+.fac-cta-question-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--text-muted);
+    padding-bottom: 4px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: var(--space-xl);
+}
+
+.fac-cta-question {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--text-dark);
+}
+
+.fac-cta-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--border-light);
+}
+
+.fac-cta-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--space-xl);
+    padding: clamp(20px, 3vw, 36px) 0;
+    border-bottom: 1px solid var(--border-light);
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: padding 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        background 0.4s ease;
+}
+
+.fac-cta-row:hover {
+    padding-left: var(--space-md);
+    padding-right: var(--space-md);
+    background: rgba(0, 102, 255, 0.04);
+}
+
+.fac-cta-num {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 900;
+    color: var(--text-faint);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+    transition: color 0.4s ease;
+}
+
+.fac-cta-row:hover .fac-cta-num {
+    color: var(--primary-blue);
+}
+
+.fac-cta-row-info h3 {
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-weight: 700;
+    color: var(--text-dark);
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+}
+
+.fac-cta-row-info p {
+    font-size: var(--text-sm);
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.fac-cta-row-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+    transition: gap 0.4s var(--ease-out-expo), color 0.3s ease;
+}
+
+.fac-cta-row-link svg {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.4s var(--ease-out-expo);
+}
+
+.fac-cta-row:hover .fac-cta-row-link {
+    color: var(--primary-blue);
+    gap: 14px;
+}
+
+.fac-cta-row:hover .fac-cta-row-link svg {
+    transform: translate(3px, -3px);
+}
+
+/* ========== MICRO-INTERACTION: SCROLL REVEAL ========== */
+.fac-service-card,
+.fac-location-card,
+.fac-price-section,
+.fac-cafe-section,
+.fac-menu-category,
+.fac-cta-card,
+.fac-location-header,
+.fac-price-header,
+.fac-feature-tag {
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.4s ease,
+        border-color 0.3s ease,
+        background 0.3s ease;
+}
+
+.fac-price-table tbody tr {
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        background 0.25s ease;
+}
+
+.fac-menu-item {
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        padding 0.3s ease,
+        background 0.3s ease;
+}
+
+.fac-revealed {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+/* ========== MICRO-INTERACTION: KEYFRAMES ========== */
+@keyframes facIconFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-4px);
+    }
+}
+
+@keyframes facShimmer {
+    0% {
+        background-position: -200% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.service-badge--shimmer {
+    background-size: 200% auto;
+    animation: facShimmer 0.8s ease forwards;
+}
+
+.service-badge--basic.service-badge--shimmer {
+    background-image: linear-gradient(90deg, rgba(34, 197, 94, 0.1) 30%, rgba(34, 197, 94, 0.25) 50%, rgba(34, 197, 94, 0.1) 70%);
+}
+
+.service-badge--standard.service-badge--shimmer {
+    background-image: linear-gradient(90deg, rgba(0, 102, 255, 0.1) 30%, rgba(0, 102, 255, 0.25) 50%, rgba(0, 102, 255, 0.1) 70%);
+}
+
+.service-badge--premium.service-badge--shimmer {
+    background-image: linear-gradient(90deg, rgba(168, 85, 247, 0.1) 30%, rgba(168, 85, 247, 0.25) 50%, rgba(168, 85, 247, 0.1) 70%);
+}
+
+
+/* ========== MICRO-INTERACTION: HERO PARALLAX ========== */
+.fac-hero-image {
+    will-change: transform;
+    transition: none;
+}
+
+.fac-hero-content {
+    will-change: transform, opacity;
+}
+
+/* ========== MICRO-INTERACTION: LOCATION IMAGE ========== */
+.fac-location-image {
+    overflow: hidden;
+}
+
+.fac-location-image img {
+    will-change: transform;
+}
+
+/* ========== MICRO-INTERACTION: MENU CATEGORY HOVER ========== */
+.fac-menu-category {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.4s ease,
+        border-color 0.3s ease;
+}
+
+.fac-menu-category:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-blue-10);
+}
+
+/* =========================================
+   NEW: location 3D map container
+   ========================================= */
+.fac-location-map {
+    position: relative;
+    width: 100%;
+    min-height: 380px;
+    height: 100%;
+    background:
+        linear-gradient(135deg, #1e293b 0%, #0f172a 60%, #1e293b 100%);
+    overflow: hidden;
+}
+
+.fac-location-map::before {
+    /* fallback placeholder pattern when no token / map fails */
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(96, 165, 250, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(96, 165, 250, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-position: -1px -1px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.fac-location-map .mapboxgl-canvas-container {
+    position: relative;
+    z-index: 1;
+}
+
+.fac-location-map .mapboxgl-ctrl-bottom-left,
+.fac-location-map .mapboxgl-ctrl-bottom-right {
+    display: none;
+}
+
+/* Custom pulse marker */
+.fac-map-marker {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    transform: translate(0, 6px);
+}
+
+.fac-map-marker-dot {
+    position: absolute;
+    inset: 5px;
+    background: var(--primary-blue);
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 4px 14px rgba(0, 102, 255, 0.5);
+}
+
+.fac-map-marker-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(0, 102, 255, 0.4);
+    animation: facMapPulse 1.8s ease-out infinite;
+}
+
+@keyframes facMapPulse {
+    0% {
+        transform: scale(0.6);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: scale(2.4);
+        opacity: 0;
+    }
+}
+
+/* =========================================
+   NEW: price groups (Bento Grid layout)
+   ========================================= */
+.fac-price-bento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+.fac-price-group {
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-light);
+    padding: var(--space-xl);
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: visible; /* Allow hover effects to spill out */
+}
+
+.fac-price-group:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+.fac-price-group--full {
+    grid-column: 1 / -1;
+}
+
+.fac-price-group-title {
+    font-size: 0.85rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--primary-blue);
+    margin-bottom: var(--space-lg);
+    padding-bottom: var(--space-sm);
+    border-bottom: 2px solid var(--primary-blue-10);
+}
+
+/* Remove internal table-wrap border/bg since card has it */
+.fac-price-group .fac-price-table-wrap {
+    border: none;
+    background: transparent;
+    border-radius: 0;
+}
+
+.fac-price-table--simple td:first-child {
+    width: 100%;
+}
+
+/* For 3-column tables, let the description (2nd column) take the space, 
+   but give the service name enough room to avoid excessive wrapping */
+.fac-price-table:not(.fac-price-table--simple) .service-name {
+    min-width: 240px;
+}
+
+.fac-price-table:not(.fac-price-table--simple) td:nth-child(2) {
+    width: 100%;
+}
+
+.fac-price-table--simple td {
+    padding: var(--space-sm) 0;
+}
+
+/* =========================================
+   NEW: cafe menu — feature category + multi-price (Hot/Cold)
+   ========================================= */
+.fac-cafe-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.fac-menu-category--feature {
+    grid-column: span 2;
+}
+
+.fac-menu-item-desc {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--text-faint);
+    line-height: 1.5;
+    margin-top: 2px;
+    max-width: 420px;
+}
+
+.fac-menu-item-price {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    text-align: right;
+    line-height: 1;
+}
+
+.fac-menu-item-price small {
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-right: 4px;
+}
+
+
+/* =========================================
+   ADJUSTMENT: services bento — text-led, no floating icons
+   ========================================= */
+.fac-service-eyebrow--light {
+    background: rgba(255, 255, 255, 0.16);
+    color: white;
+    backdrop-filter: blur(8px);
+}
+
+.fac-service-card--cafe-feature .fac-service-cafe-body {
+    gap: var(--space-md);
+}
+
+/* Disable old icon hover effects (icons removed from markup) */
+.fac-service-card:hover .fac-service-icon {
+    transform: none;
+    background: inherit;
+    color: inherit;
+}
+
+/* =========================================
+   SERVICES BENTO GRID
+   12-col grid:
+     · Feature (Bicycle Repair) – cols 1-5,  rows 1-2 (tall)
+     · Padel Simulator           – cols 6-8,  row 1
+     · Padel & Bike Shop         – cols 9-12, row 1
+     · Café (highlighted, photo) – cols 6-12, row 2
+   ========================================= */
+.fac-services-bento {
+    /* --- BENTO GRID LAYOUT CONTROLS ---
+       Top row: Padel Simulator hero (full width — main selling point).
+       Bottom row: 3 equal cards (Bicycle Repair, Coffee, Shop).            */
+    --bento-gap: var(--space-lg);
+    --bento-row1-height: 540px;   /* Padel Simulator hero */
+    --bento-row2-height: 580px;   /* 3 equal cards — taller so image + footer don't collide */
+
+    /* --- BENTO GRID IMAGE CONTROLS ---
+       Adjust these values to easily scale and position the 3D renders */
+
+    /* 1. Bicycle Repair (bottom-row left) — matches the other two */
+    --bento-bicycle-size: 100%;
+    --bento-bicycle-offset-x: 0%;
+
+    /* 2. Coffee & Hangout (bottom-row middle) */
+    --bento-coffee-size: 100%;
+    --bento-coffee-offset-x: 0%;
+
+    /* 3. Padel & Bike Shop (bottom-row right) */
+    --bento-shop-size: 100%;
+    --bento-shop-offset-x: 0%;
+
+    /* 4. Padel Simulator (col 1, row 1) */
+    --bento-training-size: 102%;
+    --bento-training-offset-x: 0%;
+    --bento-training-offset-y: -25%;  /* Pull image UP even more */
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 750px 750px;
+    gap: var(--bento-gap);
+    align-items: stretch;
+    margin-top: var(--space-3xl);
+    overflow: hidden;   /* contain any card-level overflow within the grid */
+}
+
+.fac-services-bento .fac-service-card {
+    margin: 0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;    /* own stacking context so footer z-index is local */
+    /* Reserve space for absolutely positioned footer */
+    padding-bottom: 64px;
+}
+
+/* Feature card — Bicycle Repair, top-row right (col 2) */
+.fac-service-card--feature {
+    grid-column: 2;
+    grid-row: 1;
+    overflow: hidden;
+    position: relative;
+}
+
+.fac-service-feature-body {
+    position: relative;
+    z-index: 1;
+}
+
+.fac-service-eyebrow {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--primary-blue);
+    margin-bottom: var(--space-md);
+    padding: 4px 10px;
+    background: var(--primary-blue-10);
+    border-radius: var(--radius-pill);
+    align-self: flex-start;
+}
+
+/* Uniform typography across ALL bento cards (Bicycle Repair, Coffee,
+   Shop, AND Padel Simulator) — sizes match the original feature card. */
+.fac-services-bento .fac-service-card h3 {
+    font-size: var(--text-2xl);
+    margin-bottom: var(--space-sm);
+}
+
+.fac-services-bento .fac-service-card p {
+    font-size: var(--text-base);
+    line-height: 1.6;
+    color: var(--text-body);
+}
+
+.fac-service-feature-foot {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;               /* above images in the card's stacking context */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) var(--space-lg) var(--space-lg);
+    border-top: 1px dashed var(--border-light);
+    background: var(--surface-card);   /* opaque so it's always readable */
+}
+
+.fac-service-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--primary-blue);
+    transition: gap 0.3s var(--ease-out-expo);
+}
+
+.fac-service-cta svg {
+    width: 14px;
+    height: 14px;
+}
+
+.fac-service-card:hover .fac-service-cta {
+    gap: 12px;
+}
+
+/* Bottom row left — Coffee & Hangout */
+.fac-services-bento .fac-service-card--coffee {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Bottom row right — Padel & Bike Shop */
+.fac-services-bento .fac-service-card--retail {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Simulator card — top-left (col 1, row 1) */
+.fac-services-bento .fac-service-card--wide-feature {
+    grid-column: 1;
+    grid-row: 1;
+    position: relative;
+    overflow: visible;   /* allow 3D render to spill outside card bounds */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.fac-service-wide-top {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex: 1;
+    overflow: hidden;
+}
+
+.fac-service-wide-body {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    flex-shrink: 0;
+    text-align: left;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: var(--space-sm);
+    padding-right: 0;
+}
+
+/* Bento Image Wrappers */
+.fac-bento-img-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: var(--space-md); /* Smaller gap from text */
+}
+
+.fac-bento-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fac-service-card:hover .fac-bento-img {
+    transform: scale(1.05);
+}
+
+/* Specific sizing and positioning */
+.fac-bento-img-wrap--main {
+    padding-top: 0;
+    margin: -40px calc(-1 * var(--space-lg)) 0 calc(-1 * var(--space-lg)); /* Pull UP more */
+    align-items: center;
+}
+
+.fac-bento-img-wrap--main .fac-bento-img {
+    width: var(--bento-bicycle-size);
+    max-width: var(--bento-bicycle-size);
+    margin-left: var(--bento-bicycle-offset-x);
+}
+
+.fac-services-bento .fac-service-card--coffee .fac-bento-img-wrap,
+.fac-services-bento .fac-service-card--retail .fac-bento-img-wrap {
+    margin: -40px calc(-1 * var(--space-lg)) 0 calc(-1 * var(--space-lg)); /* Pull UP more */
+}
+
+.fac-services-bento .fac-service-card--retail .fac-bento-img-wrap .fac-bento-img {
+    width: var(--bento-shop-size);
+    max-width: var(--bento-shop-size);
+    margin-left: var(--bento-shop-offset-x);
+    object-position: bottom;
+}
+
+/* Scale up Coffee & Hangout render by 30% */
+.fac-services-bento .fac-service-card--coffee .fac-bento-img-wrap .fac-bento-img {
+    width: var(--bento-coffee-size);
+    max-width: var(--bento-coffee-size);
+    margin-left: var(--bento-coffee-offset-x);
+    object-position: bottom;
+}
+
+
+.fac-bento-img-wrap--side {
+    padding-top: var(--bento-training-offset-y);
+    margin-top: 0; /* No auto margin to keep it up */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align top since we use padding-top offset */
+}
+
+.fac-bento-img-wrap--side .fac-bento-img {
+    width: var(--bento-training-size);
+    max-width: var(--bento-training-size);
+    margin-right: 0;
+}
+
+/* =========================================
+   CAFÉ BANNER (3-tile photo collage + copy)
+   ========================================= */
+.fac-cafe-banner {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+    margin-bottom: var(--space-3xl);
+}
+
+.fac-cafe-banner-tiles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: var(--space-md);
+}
+
+.fac-cafe-banner-tile {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    background: linear-gradient(135deg, #fde68a 0%, #f59e0b 100%);
+    box-shadow: var(--shadow-md);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fac-cafe-banner-tile--wide {
+    grid-column: 1 / span 2;
+    aspect-ratio: 21 / 9;
+}
+
+.fac-cafe-banner-tile--standard {
+    aspect-ratio: 16 / 9;
+}
+
+.fac-cafe-banner-tile:hover {
+    transform: translateY(-4px) scale(1.005);
+}
+
+.fac-cafe-banner-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fac-cafe-banner-tile:hover img {
+    transform: scale(1.04);
+}
+
+.fac-cafe-banner-copy {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    max-width: 800px;
+}
+
+.fac-cafe-banner-headline {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    line-height: 1;
+    color: var(--text-dark);
+    margin-bottom: var(--space-xs);
+    letter-spacing: -0.05em;
+}
+
+.fac-cafe-banner-copy > p {
+    font-size: var(--text-lg);
+    color: var(--text-body);
+    line-height: 1.6;
+    margin-bottom: var(--space-sm);
+    max-width: 650px;
+}
+
+.fac-cafe-location-note {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #000;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.9;
+}
+
+.fac-cafe-banner-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-md);
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--border-light);
+}
+
+.fac-cafe-banner-stats>div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.fac-cafe-banner-stats strong {
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--text-dark);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+}
+
+.fac-cafe-banner-stats span {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.fac-price-header--menu {
+    margin-top: 0;
+}
+
+/* =========================================
+   CAFÉ VIBES GALLERY (bento masonry)
+   ========================================= */
+.fac-cafe-vibes {
+    margin-top: var(--space-3xl);
+    padding-top: var(--space-3xl);
+    border-top: 1px solid var(--border-light);
+}
+
+.fac-cafe-vibes-header {
+    margin-bottom: var(--space-xl);
+}
+
+.fac-cafe-vibes-header .section-label {
+    color: #d97706;
+}
+
+.fac-cafe-vibes-header h3 {
+    font-size: clamp(1.4rem, 2vw, 1.85rem);
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-top: var(--space-xs);
+    letter-spacing: -0.02em;
+}
+
+.fac-cafe-vibes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 180px;
+    gap: var(--space-md);
+}
+
+.vibe-tile {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+    margin: 0;
+    background: linear-gradient(135deg, #fde68a 0%, #f59e0b 100%);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.5s ease;
+    cursor: zoom-in;
+}
+
+.vibe-tile:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.vibe-tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vibe-tile:hover img {
+    transform: scale(1.08);
+}
+
+.vibe-tile figcaption {
+    position: absolute;
+    left: 14px;
+    bottom: 14px;
+    padding: 6px 12px;
+    background: rgba(15, 23, 42, 0.78);
+    backdrop-filter: blur(10px);
+    color: white;
+    font-size: 0.78rem;
+    font-weight: 600;
+    border-radius: var(--radius-pill);
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vibe-tile:hover figcaption {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.vibe-tile.is-empty::after {
+    content: '☕';
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 2.4rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Bento layout: tall, wide, regulars */
+.vibe-tile--tall {
+    grid-row: span 2;
+}
+
+.vibe-tile--wide {
+    grid-column: span 2;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+    .fac-services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .fac-cafe-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Bento: keep it tall for 2x2 layout */
+    .fac-services-bento {
+        grid-template-rows: 750px 750px;
+    }
+
+    /* Café banner stacks */
+    .fac-cafe-banner {
+        grid-template-columns: 1fr;
+    }
+
+    .fac-cafe-banner-tiles {
+        min-height: 320px;
+    }
+
+    /* Vibes: 3 cols */
+    .fac-cafe-vibes-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .fac-hero {
+        min-height: 60vh;
+    }
+
+    .fac-hero-content h1 {
+        font-size: clamp(2rem, 7vw, 3rem);
+    }
+
+    .fac-hero-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .fac-services-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+    }
+
+    .fac-location-card,
+    .fac-location-card--reversed {
+        grid-template-columns: 1fr;
+        direction: ltr;
+    }
+
+    .fac-location-card--reversed>* {
+        direction: ltr;
+    }
+
+    .fac-location-image {
+        min-height: 240px;
+    }
+
+    .fac-location-header h2 {
+        font-size: var(--text-3xl);
+    }
+
+    .fac-price-table th,
+    .fac-price-table td {
+        padding: var(--space-sm) var(--space-md);
+    }
+
+    /* Hide description column on tablet so price table fits */
+    /* Only hide it for tables that actually have 3 columns (not --simple) */
+    .fac-price-table:not(.fac-price-table--simple) th:nth-child(2),
+    .fac-price-table:not(.fac-price-table--simple) td:nth-child(2) {
+        display: none;
+    }
+
+    .fac-cafe-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fac-cta-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Editorial CTA: stack the question above the list */
+    .fac-cta .container {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+
+    .fac-cta-block {
+        position: static;
+    }
+
+    .fac-cta-row {
+        grid-template-columns: auto 1fr;
+        gap: var(--space-md);
+    }
+
+    .fac-cta-row-link {
+        grid-column: 1 / -1;
+        justify-self: end;
+    }
+
+    /* Maps: shorter on mobile */
+    .fac-location-map {
+        min-height: 260px;
+    }
+
+    /* Feature menu category spans full width on mobile */
+    .fac-menu-category--feature {
+        grid-column: 1 / -1;
+    }
+
+    /* Bento: keep it tall for 2x2 layout */
+    .fac-services-bento {
+        grid-template-rows: 750px 750px;
+    }
+
+    /* Simulator: clip overflow at tablet so image doesn't bleed outside grid */
+    .fac-services-bento .fac-service-card--wide-feature {
+        overflow: hidden;
+    }
+
+    .fac-price-bento {
+        grid-template-columns: 1fr;
+    }
+
+    /* Café banner */
+    .fac-cafe-banner-tiles {
+        gap: 8px;
+        min-height: auto;
+    }
+
+    .fac-cafe-banner-stats {
+        gap: var(--space-sm);
+    }
+
+    .fac-cafe-banner-stats strong {
+        font-size: var(--text-lg);
+    }
+
+    /* Vibes: 2 cols on mobile, ignore tall/wide spans */
+    .fac-cafe-vibes-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 160px;
+    }
+
+    .vibe-tile--tall,
+    .vibe-tile--wide {
+        grid-row: auto;
+        grid-column: auto;
+    }
+}
+
+/* ── Single-column bento: 480px–600px ─────────────────────────────── */
+@media (max-width: 600px) {
+    .fac-services-bento {
+        grid-template-columns: 1fr;
+        grid-template-rows: none;
+        grid-auto-rows: 650px;
+    }
+
+    /* Reset explicit column/row placements so cards stack naturally */
+    .fac-services-bento .fac-service-card--wide-feature,
+    .fac-services-bento .fac-service-card--feature,
+    .fac-services-bento .fac-service-card--coffee,
+    .fac-services-bento .fac-service-card--retail {
+        grid-column: auto;
+        grid-row: auto;
+        overflow: hidden;
+    }
+}
+
+/* ── Very small screens: flex stack ───────────────────────────────── */
+@media (max-width: 480px) {
+    .fac-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fac-services-bento {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+    }
+
+    /* Give each card a comfortable fixed height in flex mode */
+    .fac-services-bento .fac-service-card {
+        min-height: 600px;
+        overflow: hidden;
+    }
+
+    .fac-service-card {
+        padding: var(--space-lg);
+        padding-bottom: 64px;
+    }
+
+    .fac-location-info {
+        padding: var(--space-lg);
+    }
+
+    .fac-price-table {
+        font-size: var(--text-xs);
+    }
+
+    .fac-price-table-wrap {
+        overflow-x: auto; /* Enable scroll on mobile if table is too wide */
+    }
+
+    /* Hide description column on very small screens */
+    .fac-price-table:not(.fac-price-table--simple) th:nth-child(2),
+    .fac-price-table:not(.fac-price-table--simple) td:nth-child(2) {
+        display: none;
+    }
+}
